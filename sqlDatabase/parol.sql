@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 30 déc. 2023 à 13:27
+-- Généré le : dim. 31 déc. 2023 à 00:00
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.0.28
 
@@ -54,7 +54,9 @@ CREATE TABLE `genre` (
 CREATE TABLE `lyrics` (
   `id` int(11) NOT NULL,
   `name_lyrics` varchar(255) NOT NULL,
-  `user_id` int(11) DEFAULT NULL
+  `date` date NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
