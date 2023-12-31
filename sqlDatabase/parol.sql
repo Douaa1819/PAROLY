@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 31 déc. 2023 à 00:00
+-- Généré le : dim. 31 déc. 2023 à 20:32
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.0.28
 
@@ -92,7 +92,7 @@ CREATE TABLE `playliste` (
 
 CREATE TABLE `rating` (
   `id` int(11) NOT NULL,
-  `rating` varchar(255) NOT NULL,
+  `rating` varchar(255) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `lyrics_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -119,8 +119,19 @@ CREATE TABLE `reclamation` (
 CREATE TABLE `song` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `playliste_id` int(11) DEFAULT NULL,
   `album_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `song_playlist`
+--
+
+CREATE TABLE `song_playlist` (
+  `id` int(11) NOT NULL,
+  `playlist_id` int(11) DEFAULT NULL,
+  `song_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -199,14 +210,37 @@ ALTER TABLE `reclamation`
 --
 ALTER TABLE `song`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `playliste_id` (`playliste_id`),
   ADD KEY `album_id` (`album_id`);
+
+--
+-- Index pour la table `song_playlist`
+--
+ALTER TABLE `song_playlist`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `playlist_id` (`playlist_id`),
+  ADD KEY `song_id` (`song_id`);
 
 --
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `rating`
+--
+ALTER TABLE `rating`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `song_playlist`
+--
+ALTER TABLE `song_playlist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
@@ -255,8 +289,14 @@ ALTER TABLE `reclamation`
 -- Contraintes pour la table `song`
 --
 ALTER TABLE `song`
-  ADD CONSTRAINT `song_ibfk_1` FOREIGN KEY (`playliste_id`) REFERENCES `playliste` (`playliste_id`),
   ADD CONSTRAINT `song_ibfk_2` FOREIGN KEY (`album_id`) REFERENCES `album` (`id`);
+
+--
+-- Contraintes pour la table `song_playlist`
+--
+ALTER TABLE `song_playlist`
+  ADD CONSTRAINT `song_playlist_ibfk_1` FOREIGN KEY (`playlist_id`) REFERENCES `playliste` (`playliste_id`),
+  ADD CONSTRAINT `song_playlist_ibfk_2` FOREIGN KEY (`song_id`) REFERENCES `song` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
