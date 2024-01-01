@@ -1,5 +1,5 @@
 <?php 
-
+require_once(__DIR__ . '/../Genre.php');
 class GenreDao{
     private $db;
     private Genre $genre;
@@ -20,21 +20,22 @@ class GenreDao{
         $req= "SELECT * FROM genre ";
         $this->db->query($req);
        $res= $this->db->fetchALL();
-       $arry=array();
-       foreach($res as $row){
-        $genre=new Genre();
-        $genre->setId($row["id"]);
-        $genre->setNom($row["nom"]);
-        $id=$genre->getId();
-        $nom=$genre->getNom();
-        $g=[
-            "id"=> $id,
-            "nom"=>$nom 
-        ];
-        array_push($arry,$g);
-       }
+        // var_dump($res);
+    //    $arry=array();
+    //    foreach($res as $row){
+    //     $genre=new Genre();
+    //     $genre->setId($row["id"]);
+    //     $genre->setNom($row["nom"]);
+    //     $id=$genre->getId();
+    //     $nom=$genre->getNom();
+    //     $g=[
+    //         "id"=> $id,
+    //         "nom"=>$nom 
+    //     ];
+    //     array_push($arry,$g);
+    //    }
     
-       return $arry;
+       return $res;
     }
         
 
@@ -47,5 +48,8 @@ class GenreDao{
     }
     }
 
+// $n=new GenreDao();
+// $r=$n->getAll();
+// var_dump($r);
 
 ?>

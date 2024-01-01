@@ -2,7 +2,7 @@
   class DashbordControler extends Controller {
     private $GenreModel;
     public function __construct(){
-      $this->GenreModel =$this->model('Genre');
+      $this->GenreModel =$this->model('GenreDao');
      
     }
     
@@ -20,8 +20,10 @@
           'Genre'=>$this->GenreModel->getAll()
         ];
        
+       
         $this->view('pages/Dashbord/Genre', $data);
       }
+      
     public function Album(){
         $data = [
           'title' => 'Album',
@@ -36,5 +38,6 @@
       header('Location: '.URLROOT.'DashbordControler/Genre');
       
       }
-
+    
   }
+ 

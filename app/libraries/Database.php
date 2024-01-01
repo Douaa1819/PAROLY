@@ -1,4 +1,5 @@
 <?php
+// require_once '../config/config.php';
 
   class Database {
     private $host = DB_HOST;
@@ -75,3 +76,7 @@
       return $this->stmt->rowCount();
     }
   }
+
+  
+
+  

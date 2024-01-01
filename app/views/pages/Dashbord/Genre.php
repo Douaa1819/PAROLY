@@ -66,11 +66,16 @@
                 </thead>
 
                 <tbody>
-                    <?php  foreach($data['Genre'] as $genre){ ?>
+                    <?php 
+                    // var_dump($data['Genre']);
+                    // die();
+                     foreach($data['Genre'] as $genre){ ?>
+
                     <tr>
-                        <td><?php $genre['id']?></td>
-                        <td><?php $genre['nom']?></td>
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
+                        <td><?= $genre->id?></td>
+                        <td><?= $genre->nom?></td>
+                        <td>
+                            <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
                             <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
                         </td>
                     </tr>

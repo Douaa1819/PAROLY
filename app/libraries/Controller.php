@@ -7,7 +7,7 @@
     // Load model
     public function model($model){
       // Require model file
-      require_once '../app/models/DAO/' . $model . 'Dao.php';
+      require_once '../app/models/DAO/' . $model . '.php';
 
       // Instatiate model
       return new $model();
