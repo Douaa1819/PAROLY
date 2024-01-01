@@ -3,8 +3,6 @@ if($data['title']==''){
     $data['title']= SITENAME;
 }
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
