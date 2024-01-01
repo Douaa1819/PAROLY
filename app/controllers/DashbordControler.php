@@ -1,6 +1,8 @@
 <?php
   class DashbordControler extends Controller {
+    private $GenreModel;
     public function __construct(){
+      $this->GenreModel =$this->model('Genre');
      
     }
     
@@ -12,8 +14,10 @@
       $this->view('pages/Dashbord/Dashboord', $data);
     }
     public function Genre(){
+      
         $data = [
           'title' => 'Genre',
+          'Genre'=>$this->GenreModel->getAll()
         ];
        
         $this->view('pages/Dashbord/Genre', $data);
@@ -28,11 +32,9 @@
     //   Ajouter
       public function AddGenre(){
         $name=$_POST['Genre'];
-        echo $name;
-        $data = [
-          'title'=> 'Add Genre',
-       ];
-       
+       $this->GenreModel->InsertGenre($name);
+      header('Location: '.URLROOT.'DashbordControler/Genre');
+      
       }
 
   }

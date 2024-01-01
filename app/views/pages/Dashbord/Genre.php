@@ -66,39 +66,16 @@
                 </thead>
 
                 <tbody>
-
+                    <?php  foreach($data['Genre'] as $genre){ ?>
                     <tr>
-                        <td>Addidas Shoes</td>
-                        <td>Due</td>
-                        <!-- <td><span class="status inProgress">In Progress</span></td> -->
+                        <td><?php $genre['id']?></td>
+                        <td><?php $genre['nom']?></td>
                         <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
                             <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-
                         </td>
                     </tr>
 
-                    <tr>
-                        <td>Star Refrigerator</td>
-                        <td>$1200</td>
-
-                        <!-- <td><span class="status delivered">Delivered</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Dell Laptop</td>
-                        <td>$110</td>
-
-                        <!-- <td><span class="status pending">Pending</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-
-                        </td>
-                    </tr>
-
+                    <?php } ?>
 
                 </tbody>
             </table>

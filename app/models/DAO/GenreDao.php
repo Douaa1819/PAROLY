@@ -7,10 +7,45 @@ class GenreDao{
         $this->db=new Database();
         $this->genre = new Genre();
     }
-    public function InsertGenre(){
+    public function InsertGenre($name){
+        
+        $req="INSERT INTO genre(nom) VALUES (':name')";
+        $this->db->query($req);
+        $this->db->bind(":name", $name);
+        $this->db->execute();
         
         
     }
-}
+    public function getAll(){
+        $req= "SELECT * FROM genre ";
+        $this->db->query($req);
+       $res= $this->db->fetchALL();
+       $arry=array();
+       foreach($res as $row){
+        $genre=new Genre();
+        $genre->setId($row["id"]);
+        $genre->setNom($row["nom"]);
+        $id=$genre->getId();
+        $nom=$genre->getNom();
+        $g=[
+            "id"=> $id,
+            "nom"=>$nom 
+        ];
+        array_push($arry,$g);
+       }
+    
+       return $arry;
+    }
+        
+
+    /**
+     * Get the value of genre
+     */ 
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+    }
+
 
 ?>
