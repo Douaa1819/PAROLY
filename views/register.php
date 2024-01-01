@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,22 +29,22 @@
         </div>
         <form action="../controllers/registerC.php" method="post">
             <div class="mb-4">
-                <input class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" type="text" name="name" placeholder="Full Name" required>
+                <input class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" type="text" name="name" placeholder="Full Name" >
             </div>
             <div class="mb-4">
-                <input class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" type="email" name="email" placeholder="Email" required>
+                <input class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" type="email" name="email" placeholder="Email">
             </div>
             <div class="mb-4">
-                <input class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" type="password" name="password" placeholder="Password" required>
+                <input class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" type="password" name="password" placeholder="Password" >
             </div>
             <div class="mb-8">
-                <input class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" type="password" name="repeat-password" placeholder="Repeat Password" required>
+                <input class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" type="password" name="repeat-password" placeholder="Repeat Password" >
             </div>
             <div class="mb-4">
                 <label for="role" class="block text-gray-700">What do you want to be!</label>
-                <select id="role" name="role" class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" required>
-                    <option value="client">Client</option>
-                    <option value="artiste">Artiste</option>
+                <select id="role" name="role" class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" >
+                    <option value="client">client</option>
+                    <option value="artist">artist</option>
                     <option value="admin">Admin</option>
                 </select>
             </div>
@@ -63,10 +64,10 @@
         </div>
         <form action=".././controllers/registerC.php" method="post">
             <div class="mb-4">
-                <input class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" type="email" name="email" placeholder="Email" required>
+                <input class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" type="email" name="email" placeholder="Email" >
             </div>
             <div class="mb-4">
-                <input class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" type="password" name="password" placeholder="Password" required>
+                <input class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" type="password" name="password" placeholder="Password" >
             </div>
             <div class="text-center mt-5">
                 <input class="bg-red-600 text-white py-2 px-8 rounded-xl cursor-pointer border border-red-600 hover:bg-white hover:text-red-600 duration:300 ease-in-out" type="submit" name="login" value="Login">
