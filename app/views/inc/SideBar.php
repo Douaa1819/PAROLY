@@ -23,7 +23,7 @@
                 <li>
                     <a href="<?php echo URLROOT; ?>/DashbordControler/Genre">
                         <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
+                            <ion-icon name="newspaper-outline"></ion-icon>
                         </span>
                         <span class="title">Genre</span>
                     </a>
@@ -31,14 +31,15 @@
                 <li>
                     <a href="<?php echo URLROOT; ?>/DashbordControler/Album">
                         <span class="icon">
-                            <ion-icon name="musical-notes-outline"></ion-icon>
+                            <ion-icon name="albums-outline"></ion-icon>
+                            <!-- <ion-icon name="musical-notes-outline"></ion-icon> -->
                         </span>
                         <span class="title">Album</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="Artiste.php">
+                    <a href="<?php echo URLROOT; ?>/DashbordControler/Artiste">
                         <span class="icon">
                             <ion-icon name="person-outline"></ion-icon>
                         </span>
@@ -47,7 +48,7 @@
                 </li>
 
                 <li>
-                    <a href="Playliste.php">
+                    <a href="<?php echo URLROOT; ?>/DashbordControler/Playliste">
                         <span class="icon">
                             <ion-icon name="invert-mode-outline"></ion-icon>
                         </span>
@@ -56,7 +57,7 @@
                 </li>
 
                 <li>
-                    <a href="song.php">
+                    <a href="<?php echo URLROOT; ?>/DashbordControler/song">
                         <span class="icon">
                             <ion-icon name="musical-note-outline"></ion-icon>
                         </span>
@@ -65,7 +66,7 @@
                 </li>
 
                 <li>
-                    <a href="Lyrics.php">
+                    <a href="<?php echo URLROOT; ?>/DashbordControler/Lyrics">
                         <span class="icon">
                             <ion-icon name="mic-circle-outline"></ion-icon>
                         </span>

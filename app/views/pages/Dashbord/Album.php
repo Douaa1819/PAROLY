@@ -38,7 +38,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="img" class="col-form-label">Image:</label>
-                                <input type="file" class="form-control" name="cat">
+                                <input type="file" class="form-control" name="imageAlbum">
                             </div>
                             <div class="mb-3">
                                 <label for="img" class="col-form-label">Genre:</label>
