@@ -14,6 +14,7 @@ if (isset($_POST["signup"])) {
  
     $password_hash = password_hash($repeat_password, PASSWORD_DEFAULT);
     $errors = array();
+    git 
     $patternEmail = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
     $patternName ='/^[a-zA-Z\s\'.-]+$/';
     $patternPassword = '/^.{4,}$/';
