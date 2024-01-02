@@ -1,5 +1,6 @@
 <?php 
-require_once(__DIR__ . '/../Genre.php');
+// require_once(__DIR__ . '/../Genre.php');
+require_once(APPROOT . '/models/Genre.php');
 class GenreDao{
  
     private $db;

@@ -1,8 +1,10 @@
 <?php
   class DashbordControler extends Controller {
     private $GenreModel;
+    private $AlbumModel;
     public function __construct(){
       $this->GenreModel =$this->model('GenreDao');
+      $this->AlbumModel =$this->model('AlbumDao');
      
     }
     
@@ -22,16 +24,18 @@
        
        
         $this->view('pages/Dashbord/Genre', $data);
-      }
+      }     
       
     public function Album(){
         $data = [
           'title' => 'Album',
+          'Album'=>$this->AlbumModel->getAll(),
+          'Genre'=>$this->GenreModel->getAll()
         ];
-       
-        $this->view('pages/Dashbord/Album', $data);
+        $this->view('pages/Dashbord/Album' ,$data);
       }
-      public function Artiste(){
+
+    public function Artiste(){
         $data = [
           'title' => 'Artiste',
         ];
@@ -59,7 +63,7 @@
        
         $this->view('pages/Dashbord/Lyrics', $data);
       }
-      // Lyrics
+      //------------------------- Genere---------------------------
     //   Ajouter Genre
       public function AddGenre(){
         if(isset($_POST['submit'])){
@@ -97,6 +101,23 @@
         }
         // header('Location: '.URLROOT.'/DashbordControler/UpdateGenre');
       }
+           //------------------------- fin Genere---------------------------
+          //------------------------- Album ---------------------------
+          // public function SelectAlbum(){
+      
+          //   $data = [
+          //     'title' => 'Album',
+             
+          //   ];
+           
+           
+          //   $this->view('pages/Dashbord/Album', $data);
+          // }
+
+
+          function addAlbum() {
+            
+          }
     
   }
  

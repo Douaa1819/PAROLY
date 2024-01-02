@@ -42,13 +42,19 @@
                             </div>
                             <div class="mb-3">
                                 <label for="img" class="col-form-label">Genre:</label>
-                                <select name="" id="">
-                                    <option value=""></option>
+
+                                <select name="genre" class="form-select" aria-label="Default select example">
+                                    <option disabled selected>Open this select Genre</option>
+                                    <?php foreach($data['Genre'] as $genre) { ?>
+                                    <option value="<?= $genre->getId() ?>">
+                                        <?= $genre->getNom() ?>
+                                    </option>
+                                    <?php } ?>
                                 </select>
                             </div>
 
 
-                            <div class="modal-footer">
+                            <div class=" modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" name="submit" class="btn btn-primary">Add Album</button>
                             </div>
@@ -69,6 +75,7 @@
             <table>
                 <thead>
                     <tr>
+                        <td>#</td>
                         <td>Name</td>
                         <td>Image</td>
                         <td>Genre</td>
@@ -78,41 +85,18 @@
                 </thead>
 
                 <tbody>
-
+                    <?php foreach($data['Album'] as $album) {?>
                     <tr>
-                        <td>Addidas Shoes</td>
-                        <td>$620</td>
-                        <td>Due</td>
-                        <!-- <td><span class="status inProgress">In Progress</span></td> -->
+                        <td><?=$album->getId()?></td>
+                        <td><?=$album->getName()?></td>
+                        <td><?=$album->getImage()?></td>
+                        <td><?=$album->getGenre_name()?></td>
                         <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
                             <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
 
                         </td>
                     </tr>
-
-                    <tr>
-                        <td>Star Refrigerator</td>
-                        <td>$1200</td>
-                        <td>Paid</td>
-                        <!-- <td><span class="status delivered">Delivered</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Dell Laptop</td>
-                        <td>$110</td>
-                        <td>Due</td>
-                        <!-- <td><span class="status pending">Pending</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-
-                        </td>
-                    </tr>
-
-
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
@@ -124,90 +108,21 @@
             </div>
 
             <table>
+                <?php foreach($data['Album'] as $album) {?>
                 <tr>
                     <td width="60px">
                         <div class="imgBx">
-                            <img src="assets/imgs/customer02.jpg" alt="" />
+                            <img src="<?=$album->getImage()?>" alt="" />
                         </div>
                     </td>
                     <td>
                         <h4>
                             Album<br />
-                            <span>Italy</span>
+                            <span><?=$album->getName()?></span>
                         </h4>
                     </td>
                 </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer01.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>India</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer02.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>Italy</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer01.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>India</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer02.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>Italy</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer01.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>India</span>
-                        </h4>
-                    </td>
-                </tr>
-
+                <?php } ?>
             </table>
         </div>
     </div>

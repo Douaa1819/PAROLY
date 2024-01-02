@@ -26,11 +26,13 @@ console.log("aaa");
 
 const updateBtns = document.querySelectorAll(".update-btn");
 const genreid = document.querySelector("#id");
-// const genreInput = document.querySelector("#id");
+const genreInput = document.querySelector("#genre");
 for (let i = 0; i < updateBtns.length; i++) {
   updateBtns[i].addEventListener("click", () => {
     console.log(updateBtns[i].attributes.value);
+    console.log(updateBtns[i].attributes.value.value);
     console.log(updateBtns[i].dataset.key);
     genreid.setAttribute("value", updateBtns[i].dataset.key);
+    genreInput.value=updateBtns[i].attributes.value.value
   })
 }
