@@ -28,7 +28,7 @@ if (isset($_POST["signup"])) {
     }
    
     if (!preg_match($patternPassword,$password)) {
-        array_push($errors, "Please use at least 8 characters");
+        array_push($errors, "Please use at least 4 characters");
     }
 
     if ($password !== $repeat_password) {

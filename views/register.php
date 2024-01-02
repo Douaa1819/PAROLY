@@ -9,7 +9,7 @@
     <title>paroly</title>
 </head>
 <style>
-        /* Add CSS for initially hiding the login form */
+   
         #signupForm {
             display: none;
             opacity: 0;
@@ -75,7 +75,7 @@
         </form>
         <!-- here botton forget password -->
         <div class="mt-8 flex items-end justify-center ">
-            <button href="#" class="text-red-600 hover:underline cursor-pointer">Forgotten password?</button>
+            <button href="" class="text-red-600 hover:underline cursor-pointer">Forgotten password?</button>
         </div>
         <div class="text-center mt-7">
             <button id="showSignUpFormBtn" class="text-red-600 hover:underline cursor-pointer" class="text-red-600 hover:underline cursor-pointer">Don't have an account? Sign Up</button>
