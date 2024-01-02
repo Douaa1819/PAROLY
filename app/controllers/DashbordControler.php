@@ -90,6 +90,7 @@
             }
       }
       public function UpdateGenre(){
+        
         if(isset($_POST['updategenre'])){
         $id=$_POST['id'];
         $nom=$_POST['genre'];
@@ -103,20 +104,30 @@
       }
            //------------------------- fin Genere---------------------------
           //------------------------- Album ---------------------------
-          // public function SelectAlbum(){
-      
-          //   $data = [
-          //     'title' => 'Album',
-             
-          //   ];
-           
-           
-          //   $this->view('pages/Dashbord/Album', $data);
-          // }
-
-
-          function addAlbum() {
-            
+    
+          public function addAlbum() {
+            if (isset($_POST['AddAlbum'])) {
+              $imageData = file_get_contents($_FILES['imageAlbum']['tmp_name']);
+              $imageName = $_FILES['imageAlbum']['name'];
+              $albumName = $_POST['album'];
+              $genreName = $_POST['genre'];
+          
+              echo "Album Name: $albumName<br>";
+              echo "Image Name: $imageData<br>";
+              echo "Genre Name: $genreName<br>";
+          
+              // // Continue with your InsertAlbum function or any other processing logic
+              // $insertResult = $yourAlbumModelObject->InsertAlbum($albumName, $imageData, $genreName);
+          
+              // // Check the result of the insertion
+              // if ($insertResult) {
+              //     echo "Album added successfully!";
+              // } else {
+              //     echo "Error adding album. Please check your code.";
+              //     // You might want to include additional error handling here
+              // }
+          }
+          
           }
     
   }

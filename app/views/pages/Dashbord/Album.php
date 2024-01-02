@@ -17,7 +17,7 @@
 
     </div>
 
-    <!--=========================Modal====================-->
+    <!--=========================Modal Ajout ====================-->
 
     <div class="button-add-student float-end me-4">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -31,14 +31,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="./traitement/addcategory.php" enctype="multipart/form-data">
+                        <form method="POST" action="<?= URLROOT ?>/DashbordControler/addAlbum"
+                            enctype=" multipart/form-data">
                             <div class="mb-3">
                                 <label for="img" class="col-form-label">Album:</label>
-                                <input type="text" class="form-control" name="cat">
+                                <input type="text" class="form-control" name="album">
                             </div>
                             <div class="mb-3">
-                                <label for="img" class="col-form-label">Image:</label>
-                                <input type="file" class="form-control" name="imageAlbum">
+                                <label for="imageAlbum" class="col-form-label">Image:</label>
+                                <input type="file" class="form-control" accept="image/*" name="imageAlbum">
                             </div>
                             <div class="mb-3">
                                 <label for="img" class="col-form-label">Genre:</label>
@@ -56,7 +57,7 @@
 
                             <div class=" modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="submit" class="btn btn-primary">Add Album</button>
+                                <button type="submit" name="AddAlbum" class="btn btn-primary">Add Album</button>
                             </div>
                         </form>
                     </div>

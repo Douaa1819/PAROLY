@@ -28,6 +28,18 @@ class AlbumDao{
     
         return $array;
     }
+ 
+    public function InsertAlbum($name, $image, $genre_name) {
+        $req = "INSERT INTO album(name, image, genre_id) VALUES (:name, :image, :genre)";
+        $this->db->query($req);
+        $this->db->bind(":name", $name);
+        $this->db->bind(":image", $image); 
+        $this->db->bind(":genre", $genre_name); 
+        
+        $res = $this->db->execute();
+        return $res;
+    }
+    
 }
 
 
