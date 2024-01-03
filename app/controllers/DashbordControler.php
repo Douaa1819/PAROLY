@@ -107,25 +107,21 @@
     
           public function addAlbum() {
             if (isset($_POST['AddAlbum'])) {
-              $imageData = file_get_contents($_FILES['imageAlbum']['tmp_name']);
-              $imageName = $_FILES['imageAlbum']['name'];
+              // var_dump($_FILES);
+              // die();
+    
+              $tmp_name= $_FILES['image']['tmp_name'];
+              $image = file_get_contents($tmp_name);
+                
               $albumName = $_POST['album'];
               $genreName = $_POST['genre'];
-          
-              echo "Album Name: $albumName<br>";
-              echo "Image Name: $imageData<br>";
-              echo "Genre Name: $genreName<br>";
-          
-              // // Continue with your InsertAlbum function or any other processing logic
-              // $insertResult = $yourAlbumModelObject->InsertAlbum($albumName, $imageData, $genreName);
-          
-              // // Check the result of the insertion
-              // if ($insertResult) {
-              //     echo "Album added successfully!";
-              // } else {
-              //     echo "Error adding album. Please check your code.";
-              //     // You might want to include additional error handling here
-              // }
+              // echo "Album Name: $albumName<br>";
+              // echo "Image Name: $image<br>";
+              // echo "Genre Name: $genreName<br>";
+              
+               $this->AlbumModel->InsertAlbum($albumName,$image,$genreName);
+               header('Location: '.URLROOT.'/DashbordControler/Album');
+             
           }
           
           }
