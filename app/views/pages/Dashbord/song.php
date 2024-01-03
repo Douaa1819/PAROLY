@@ -101,21 +101,24 @@
             <table>
                 <thead>
                     <tr>
-                        <td>Name</td>
+                        <td>#</td>
+                        <td>Song</td>
                         <td>Album</td>
                         <td>Action</td>
                     </tr>
                 </thead>
 
                 <tbody>
+                    <?php   foreach($data['song'] as $song){ ?>
 
                     <tr>
-                        <td>Addidas Shoes</td>
-                        <td>Due</td>
+                        <td><?=  $song->getIdSong() ?>
+                        </td>
+                        <td><?=  $song->getNameSong() ?></td>
+                        <td><?=  $song->getAlbum_name() ?></td>
                         <!-- <td><span class="status inProgress">In Progress</span></td> -->
 
-                        <td> <a type="button"><i class=" btn btn-primary far fa-pen"></i></a>
-
+                        <td>
                             <a type="button"><i class="btn btn-danger far fa-trash"></i></a>
                             <a type="button" data-bs-toggle="modal" data-bs-target="#lyricsSongModal"
                                 data-bs-whatever="@mdo">
@@ -124,20 +127,7 @@
 
                         </td>
                     </tr>
-
-                    <tr>
-                        <td>Dell Laptop</td>
-                        <td>Due</td>
-                        <!-- <td><span class="status pending">Pending</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-                            <a type="button" data-bs-toggle="modal" data-bs-target="#lyricsSongModal"
-                                data-bs-whatever="@mdo">
-                                <ion-icon class="btn btn-primary" name="add-circle-outline"></ion-icon>
-                            </a>
-
-                        </td>
-                    </tr>
+                    <?php } ?>
 
 
                 </tbody>

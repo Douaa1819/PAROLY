@@ -3,11 +3,13 @@
     private $GenreModel;
     private $AlbumModel;
     private $PlayListeModel;
+    private $SongModel;
     public function __construct(){
       $this->GenreModel =$this->model('GenreDao');
       $this->AlbumModel =$this->model('AlbumDao');
       $this->PlayListeModel =$this->model('PalylisteDao');
-     
+      $this->SongModel =$this->model('SongDao');
+
     }
     
     public function index(){
@@ -55,6 +57,7 @@
       public function song(){
         $data = [
           'title' => 'song',
+          'song'=>$this->SongModel->getAll()
         ];
        
         $this->view('pages/Dashbord/song', $data);
