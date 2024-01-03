@@ -122,16 +122,16 @@ public function login2(){
 private function redirectBasedOnRole($role) {
     switch ($role) {
         case 'admin':
-     
+            echo '<script>window.location.replace("/DashbordControler.php");</script>';
             break;
         case 'client':
-            // header("location: pageClient.php");
+          //  echo '<script>window.location.replace("/DashbordControler.php");</script>';
             break;
         case 'artist':
-            // header("location: pageArtiste.php");
+          //  echo '<script>window.location.replace("/DashbordControler.php");</script>';
             break;
         default:
-            // echo "Role not recognized";
+           
             break;
     }
 }
