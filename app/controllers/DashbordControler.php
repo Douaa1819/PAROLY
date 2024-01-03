@@ -118,7 +118,7 @@
               // echo "Album Name: $albumName<br>";
               // echo "Image Name: $image<br>";
               // echo "Genre Name: $genreName<br>";
-              
+              //album
                $this->AlbumModel->InsertAlbum($albumName,$image,$genreName);
                header('Location: '.URLROOT.'/DashbordControler/Album');
              
