@@ -32,16 +32,16 @@
                     </div>
                     <div class="modal-body">
                         <form method="POST" action="<?= URLROOT ?>/DashbordControler/addAlbum"
-                            enctype=" multipart/form-data">
+                            enctype="multipart/form-data">
                             <div class="mb-3">
-                                <label for="img" class="col-form-label">Album:</label>
+                                <label class="col-form-label">Album:</label>
                                 <input type="text" class="form-control" name="album">
                             </div>
                             <div class="mb-3">
                                 <label for="imageAlbum" class="col-form-label">Image:</label>
-                                <input type="file" class="form-control" accept="image/*" name="imageAlbum">
+                                <input type="file" class="form-control" name="image">
                             </div>
-                            <div class="mb-3">
+                            <div class=" mb-3">
                                 <label for="img" class="col-form-label">Genre:</label>
 
                                 <select name="genre" class="form-select" aria-label="Default select example">
@@ -90,7 +90,10 @@
                     <tr>
                         <td><?=$album->getId()?></td>
                         <td><?=$album->getName()?></td>
-                        <td><?=$album->getImage()?></td>
+
+
+                        <td><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($album->getImage()); ?>"
+                                style="width: 200px; border-radius: 10px;" /></td>
                         <td><?=$album->getGenre_name()?></td>
                         <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
                             <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
