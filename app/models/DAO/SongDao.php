@@ -26,6 +26,21 @@ class SongDao{
     
         return $array;
     }
+    public function InsertSong($nameSong,$idAlbum){
+        
+        $req="INSERT INTO song(name,album_id) VALUES (:nameSong,:idAlbum)";
+        $this->db->query($req);
+        $this->db->bind(':nameSong',$nameSong);
+        $this->db->bind(':idAlbum',$idAlbum);
+        $this->db->execute();
+        
+    }
+    public function DeleteSong($idSong){
+        $req="DELETE FROM `song` WHERE id=:id";
+        $this->db->query($req);
+        $this->db->bind(':id',$idSong);
+        $this->db->execute();
+    }
 }
 
 ?>

@@ -49,7 +49,7 @@
       public function Playliste(){
         $data = [
           'title' => 'Playliste',
-          'Playliste'=>$this->PlayListeModel->getAll()
+          'Playliste'=>$this->PlayListeModel->getAll(),
         ];
        
         $this->view('pages/Dashbord/Playliste', $data);
@@ -57,7 +57,9 @@
       public function song(){
         $data = [
           'title' => 'song',
-          'song'=>$this->SongModel->getAll()
+          'song'=>$this->SongModel->getAll(),
+          'Album'=>$this->AlbumModel->getFtechOption()
+
         ];
        
         $this->view('pages/Dashbord/song', $data);
@@ -140,8 +142,29 @@
                       }
                     }
                        //-------------------------  fin Play liste ---------------------------
-                    
+                    // ------------------------------Add Song------------------------------------
+                    public function Addsong(){
+                      if(isset($_POST['AddSong'])){
+                        $Songname=$_POST['Songname'];
+                       $album=$_POST['AlbumSong'];
+                       $this->SongModel->InsertSong($Songname,$album);
+                       header('Location: '.URLROOT.'/DashbordControler/song');
+                      }
+                      else{
+                            header('Location: '.URLROOT.'/DashbordControler/song');
+                      }
+                    }
+                      public function DelletSong(){
+                        if(isset($_GET['id'])){
+                          $idsong=$_GET['id'];
+                          $this->SongModel->DeleteSong($idsong);
+                          header('Location: '.URLROOT.'/DashbordControler/song');
+                        }else {
+                          header('Location: '.URLROOT.'/DashbordControler/song');
 
+                        }
+                       
+                      }
           
     
   }
