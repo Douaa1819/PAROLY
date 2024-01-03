@@ -6,8 +6,9 @@ define('DB_PASS', '');
 define('DB_NAME', 'parol');
 
 // App Root
+// app
 define('APPROOT', dirname(dirname(__FILE__)));
-// URL Root
+// URL Root public
 define('URLROOT', 'http://localhost/paroly');
 // Site Name
 define('SITENAME', 'lyrically');

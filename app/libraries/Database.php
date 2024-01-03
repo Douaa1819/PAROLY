@@ -1,4 +1,5 @@
 <?php
+// require_once '../config/config.php';
 
   class Database {
     private $host = DB_HOST;
@@ -59,7 +60,7 @@
     }
 
     // Get result set as array of objects
-    public function resultSet(){
+    public function fetchALL(){
       $this->execute();
       return $this->stmt->fetchAll(PDO::FETCH_OBJ);
     }
@@ -75,3 +76,7 @@
       return $this->stmt->rowCount();
     }
   }
+
+  
+
+  
