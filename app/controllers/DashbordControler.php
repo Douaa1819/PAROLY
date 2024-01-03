@@ -2,9 +2,11 @@
   class DashbordControler extends Controller {
     private $GenreModel;
     private $AlbumModel;
+    private $PlayListeModel;
     public function __construct(){
       $this->GenreModel =$this->model('GenreDao');
       $this->AlbumModel =$this->model('AlbumDao');
+      $this->PlayListeModel =$this->model('PalylisteDao');
      
     }
     
@@ -45,6 +47,7 @@
       public function Playliste(){
         $data = [
           'title' => 'Playliste',
+          'Playliste'=>$this->PlayListeModel->getAll()
         ];
        
         $this->view('pages/Dashbord/Playliste', $data);
@@ -100,31 +103,43 @@
         else{
           header('Location: '.URLROOT.'/DashbordControler/Genre');
         }
-        // header('Location: '.URLROOT.'/DashbordControler/UpdateGenre');
       }
            //------------------------- fin Genere---------------------------
-          //------------------------- Album ---------------------------
     
-          public function addAlbum() {
-            if (isset($_POST['AddAlbum'])) {
-              // var_dump($_FILES);
-              // die();
-    
-              $tmp_name= $_FILES['image']['tmp_name'];
-              $image = file_get_contents($tmp_name);
-                
-              $albumName = $_POST['album'];
-              $genreName = $_POST['genre'];
-              // echo "Album Name: $albumName<br>";
-              // echo "Image Name: $image<br>";
-              // echo "Genre Name: $genreName<br>";
-              //album
-               $this->AlbumModel->InsertAlbum($albumName,$image,$genreName);
-               header('Location: '.URLROOT.'/DashbordControler/Album');
-             
-          }
+         
+                    //------------------------- Play liste ---------------------------
+                    // ADD pLAY LISTE 
+                    public function addPlayliste(){
+                      if(isset($_POST['playliste'])){
+                       $namePlayliste=$_POST['Playliste'];
+                       $tmp_name= $_FILES['image']['tmp_name'];
+                       $image = file_get_contents($tmp_name);
+                        $user=$_POST['user'] ;
+                        
+                        $this->PlayListeModel->InsertPlayliste($namePlayliste,$image,$user);
+                        header('Location: '.URLROOT.'/DashbordControler/Playliste');
+                      }
+                      else {
+                        header('Location: '.URLROOT.'/DashbordControler/Playliste');
+                      }
+                    }
+                    // Dellete playliste
+                    public function DelletPlayliste(){
+                      if(isset($_GET['id'])){
+                        $id=$_GET['id'];
+                        $this->PlayListeModel->DelletPlayliste( $id );
           
-          }
+                        header('Location: '.URLROOT.'/DashbordControler/Playliste');
+                      }
+                      else{
+                        header('Location: '.URLROOT.'/DashbordControler/Playliste');
+          
+                      }
+                    }
+                       //-------------------------  fin Play liste ---------------------------
+                    
+
+          
     
   }
  

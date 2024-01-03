@@ -28,15 +28,6 @@
                         <span class="title">Genre</span>
                     </a>
                 </li>
-                <li>
-                    <a href="<?php echo URLROOT; ?>/DashbordControler/Album">
-                        <span class="icon">
-                            <ion-icon name="albums-outline"></ion-icon>
-                            <!-- <ion-icon name="musical-notes-outline"></ion-icon> -->
-                        </span>
-                        <span class="title">Album</span>
-                    </a>
-                </li>
 
                 <li>
                     <a href="<?php echo URLROOT; ?>/DashbordControler/Artiste">

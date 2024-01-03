@@ -23,7 +23,7 @@ toggle.onclick = function () {
 function update() {
 console.log("aaa");
 }
-
+// update Genere 
 const updateBtns = document.querySelectorAll(".update-btn");
 const genreid = document.querySelector("#id");
 const genreInput = document.querySelector("#genre");
@@ -36,3 +36,4 @@ for (let i = 0; i < updateBtns.length; i++) {
     genreInput.value=updateBtns[i].attributes.value.value
   })
 }
+//update Playliste
