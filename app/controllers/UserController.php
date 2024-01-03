@@ -122,7 +122,7 @@ public function login2(){
 private function redirectBasedOnRole($role) {
     switch ($role) {
         case 'admin':
-            echo '<script>window.location.replace("/DashbordControler.php");</script>';
+            echo '<script>window.location.replace(" '.URLROOT.'/DashbordControler");</script>';
             break;
         case 'client':
           //  echo '<script>window.location.replace("/DashbordControler.php");</script>';
