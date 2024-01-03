@@ -122,7 +122,7 @@ public function login2(){
 private function redirectBasedOnRole($role) {
     switch ($role) {
         case 'admin':
-               // header("location: pageClient.php");
+     
             break;
         case 'client':
             // header("location: pageClient.php");
