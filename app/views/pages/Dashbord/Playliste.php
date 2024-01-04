@@ -62,7 +62,7 @@
     <div class="details">
         <div class="recentOrders">
             <div class="cardHeader">
-                <h2>Playliste</h2>
+                <h2>Playlist</h2>
                 <!-- <a href="#" class="btn">View All</a> -->
             </div>
 
@@ -102,7 +102,7 @@
         <!-- ================= New Customers ================ -->
         <div class="recentCustomers">
             <div class="cardHeader">
-                <h2>Album </h2>
+                <h2>Playlist </h2>
             </div>
 
             <table>
@@ -116,8 +116,8 @@
                     </td>
                     <td>
                         <h4>
-                            Album<br />
-                            <span><?= $Playliste->getUsername()?></span>
+                            <?= $Playliste->getUsername()?><br />
+                            <span><?= $Playliste->getUser_name()?></span>
                         </h4>
                     </td>
                 </tr>
