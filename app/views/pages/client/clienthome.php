@@ -1,7 +1,3 @@
-<?php
-require_once '../app/bootstrap.php';
-$init = new Core;
-?>
 
 <?php require APPROOT . '/views/inc/Clientheader.php'; ?>
 <?php require APPROOT . '/views/inc/ClientSideBar.php'; ?>

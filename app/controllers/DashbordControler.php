@@ -127,7 +127,7 @@
                       else {
                         header('Location: '.URLROOT.'/DashbordControler/Playliste');
                       }
-                    }
+                   }
                     // Dellete playliste
                     public function DelletPlayliste(){
                       if(isset($_GET['id'])){
