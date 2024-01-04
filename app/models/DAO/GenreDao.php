@@ -1,5 +1,10 @@
 <?php 
+<<<<<<< HEAD
 require_once(__DIR__ . '/../Genre.php');
+=======
+// require_once(__DIR__ . '/../Genre.php');
+require_once(APPROOT . '/models/Genre.php');
+>>>>>>> 4e980dfb5add245e189ab86e94dc66d57e40c0ad
 class GenreDao{
  
     private $db;
@@ -9,6 +14,7 @@ class GenreDao{
         $this->genre = new Genre();
     }
     
+<<<<<<< HEAD
     public function InsertGenre($name){
         
         $req="INSERT INTO genre(nom) VALUES (':name')";
@@ -18,11 +24,23 @@ class GenreDao{
         
         
     }
+=======
+    public function InsertGenre($name) {
+        $req = "INSERT INTO genre(nom) VALUES (:name)";
+        $this->db->query($req);
+        $this->db->bind(":name", $name);
+        $this->db->execute();
+    }
+    
+>>>>>>> 4e980dfb5add245e189ab86e94dc66d57e40c0ad
     public function getAll() {
         $req = "SELECT * FROM genre";
         $this->db->query($req);
         $res = $this->db->fetchAll();  
+<<<<<<< HEAD
         // var_dump($res);
+=======
+>>>>>>> 4e980dfb5add245e189ab86e94dc66d57e40c0ad
         $array = array();
         foreach ($res as $row) {
             $genre = new Genre();
@@ -35,6 +53,7 @@ class GenreDao{
     
         return $array;
     }
+<<<<<<< HEAD
     
         
 
@@ -45,6 +64,25 @@ class GenreDao{
     // {
     //     return $this->genre;
     // }
+=======
+    public function DelletGenre($id) {
+        $req = "DELETE FROM `genre` WHERE id= :id";
+        $this->db->query($req);
+        $this->db->bind(":id", $id);
+        $this->db->execute();
+    }
+    
+    public function UpdateGenre($id, $name) {
+        $req = "UPDATE genre SET nom = :name WHERE id = :id";
+        $this->db->query($req);
+        $this->db->bind(":id", $id);
+        $this->db->bind(":name", $name); // Use $name instead of $id
+        $this->db->execute();
+    }
+    
+
+
+>>>>>>> 4e980dfb5add245e189ab86e94dc66d57e40c0ad
 }
     
 // $n=new GenreDao();
