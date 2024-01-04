@@ -22,6 +22,7 @@ if($data['title']==''){
   <title><?php echo $data['title']; ?></title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css" />
+    
 </head>
 
 <body>

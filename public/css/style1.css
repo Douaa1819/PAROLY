@@ -190,12 +190,31 @@ body {
   border: 1px solid var(--black2);
 }
 
-.search label ion-icon {
+.search label .loop {
   position: absolute;
-  top: 0;
-  left: 10px;
+  top: 10px;
+  right: 15px;
   font-size: 1.2rem;
 }
+.topbar .fliter {
+  color: var(--white);
+  font-size: 1.2rem;
+}
+.topbar .btns .sign-up{
+  background-color: var(--white);
+  color: var(--red);
+  padding: 5px 20px;
+  border: none;
+  border-radius: 20px;
+} 
+
+.topbar .btns .log-in{
+  background-color: var(--red);
+  color: var(--white);
+  padding: 5px 20px;
+  border: none;
+  border-radius: 20px;
+}  
 
 .user {
   position: relative;
@@ -220,46 +239,63 @@ body {
   position: relative;
   width: 100%;
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   grid-gap: 30px;
 }
 
 .cardBox .card {
   position: relative;
-  background: var(--white);
-  padding: 30px;
+  cursor: pointer;
+}
+
+.cardBox .c1{
+  width: 70%;
+  background-color: transparent;
+  background-image: url(../image/artiste.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-right: 10px;
+}
+
+.cardBox .c1 .title{
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  padding-top:3rem ;
+  padding-bottom: 2.1rem;
+}
+.cardBox .c1 .title h1{
+  width: 45%;
+}
+.cardBox .c1 .title p{
+  font-size: 20px;
+  width: 45%;
+}
+.cardBox .c1 .title button{
+  background-color: var(--white);
+  color: var(--red);
+  padding: 5px 20px;
+  border: none;
   border-radius: 20px;
+}
+
+.cardBox .c2{  
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
-  cursor: pointer;
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  padding: 15px 30px 0px 30px;
+  width: 35%;
 }
-
-.cardBox .card .numbers {
-  position: relative;
-  font-weight: 500;
-  font-size: 2.5rem;
-  color: var(--black);
-}
-
-.cardBox .card .cardName {
-  color: var(--black2);
-  font-size: 1.1rem;
-  margin-top: 5px;
-}
-
-.cardBox .card .iconBx {
-  font-size: 3.5rem;
+.cardBox .c2 h2{
   color: var(--red);
+  font-size: 24px;
 }
-
-.cardBox .card:hover {
-  background: var(--red);
+.cardBox .c2 h3{
+  color: var(--white);
+  font-size: 22px;
 }
-.cardBox .card:hover .numbers,
-.cardBox .card:hover .cardName,
-.cardBox .card:hover .iconBx {
+.cardBox .c2 p{
   color: var(--white);
 }
 
@@ -273,152 +309,51 @@ body {
   grid-gap: 30px;
   /* margin-top: 10px; */
 }
-.lyrics{
-  position: relative;
-  width: 100%;
-  padding: 20px;
-  display: grid;
-  grid-template-columns:1fr;
-  grid-gap: 30px;
-
-}
-.lyrics .recentOrders{
-  position: relative;
-  display: grid;
-  min-height: 500px;
-  background: #fff;
-  padding: 20px;
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-}
-.lyrics .cardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.lyrics table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-.lyrics table thead td {
-  font-weight: 600;
-}
-.lyrics .recentOrders table tr {
-  color: var(--black1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-.lyrics .recentOrders table tr:last-child {
-  border-bottom: none;
-}
-.lyrics .recentOrders table tbody tr:hover {
-  background: var(--red);
-  color: var(--white);
-}
-.lyrics .recentOrders table tr td {
-  padding: 10px;
-}
-.lyrics .recentOrders table tr td:last-child {
-  text-align: end;
-}
-.lyrics .recentOrders table tr td:nth-child(2) {
-  text-align: end;
-}
-.lyrics .recentOrders table tr td:nth-child(3) {
-  text-align: center;
-}
-/* _______________ */
 
 .details .recentOrders {
   position: relative;
-  display: grid;
-  min-height: 500px;
-  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  background: var(--black2);
   padding: 20px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
 }
 
-.details .cardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.cardHeader h2 {
+.details .recentOrders h2 {
+  height: 20px;
   font-weight: 600;
   color: var(--red);
 }
-.cardHeader .btn {
-  position: relative;
-  padding: 5px 10px;
-  background: var(--red);
-  text-decoration: none;
-  color: var(--white);
-  border-radius: 6px;
+
+.details .recentOrders .lyrics{
+  padding-top: 30px ;
+  background-color: #373737;
+  border-radius: 20px;
 }
 
-.details table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+.details .recentOrders pre {
+  color: #6b6a6a;
+  font-weight: bold;
 }
-.details table thead td {
-  font-weight: 600;
+
+.details .recentOrders .other{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
-.details .recentOrders table tr {
-  color: var(--black1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+.details .recentOrders .other button {
+  background-color: var(--white);
+  color: var(--red);
+  padding: 5px 20px;
+  border: none;
+  border-radius: 20px;
 }
-.details .recentOrders table tr:last-child {
-  border-bottom: none;
-}
-.details .recentOrders table tbody tr:hover {
-  background: var(--red);
+
+.details .recentOrders .other .reaction{
+  margin-right: 20px;
   color: var(--white);
-}
-.details .recentOrders table tr td {
-  padding: 10px;
-}
-.details .recentOrders table tr td:last-child {
-  text-align: end;
-}
-.details .recentOrders table tr td:nth-child(2) {
-  text-align: end;
-}
-.details .recentOrders table tr td:nth-child(3) {
-  text-align: center;
-}
-.status.delivered {
-  padding: 2px 4px;
-  background: #8de02c;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
-.status.pending {
-  padding: 2px 4px;
-  background: #e9b10a;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
-.status.return {
-  padding: 2px 4px;
-  background: #f00;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
-.status.inProgress {
-  padding: 2px 4px;
-  background: #1795ce;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
 }
 
 .recentCustomers {
@@ -426,44 +361,52 @@ body {
   display: grid;
   min-height: 500px;
   padding: 20px;
-  background: var(--white);
+  background: var(--black2);
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
 }
-.recentCustomers .imgBx {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 50px;
-  overflow: hidden;
+.recentCustomers h2{
+  font-weight: 600;
+  color: var(--red);
 }
-.recentCustomers .imgBx img {
-  position: absolute;
-  top: 0;
-  left: 0;
+.recentCustomers .song{
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 1rem;
+  border-radius: 20px;
+}
+.recentCustomers .songinfo{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--white);
+}
+
+.recentCustomers .play{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.recentCustomers .play .line{
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 2px;
+  background-color: var(--white);
 }
-.recentCustomers table tr td {
-  padding: 12px 10px;
-}
-.recentCustomers table tr td h4 {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.2rem;
-}
-.recentCustomers table tr td h4 span {
-  font-size: 14px;
-  color: var(--black2);
-}
-.recentCustomers table tr:hover {
-  background: var(--red);
+.recentCustomers .play .icons{
   color: var(--white);
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
-.recentCustomers table tr:hover td h4 span {
-  color: var(--white);
+
+.recentCustomers .play .icons .pause{
+  font-size: 45px;
 }
+
+
 
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {

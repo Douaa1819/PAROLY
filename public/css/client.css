@@ -273,61 +273,6 @@ body {
   grid-gap: 30px;
   /* margin-top: 10px; */
 }
-.lyrics{
-  position: relative;
-  width: 100%;
-  padding: 20px;
-  display: grid;
-  grid-template-columns:1fr;
-  grid-gap: 30px;
-
-}
-.lyrics .recentOrders{
-  position: relative;
-  display: grid;
-  min-height: 500px;
-  background: #fff;
-  padding: 20px;
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-}
-.lyrics .cardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.lyrics table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-.lyrics table thead td {
-  font-weight: 600;
-}
-.lyrics .recentOrders table tr {
-  color: var(--black1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-.lyrics .recentOrders table tr:last-child {
-  border-bottom: none;
-}
-.lyrics .recentOrders table tbody tr:hover {
-  background: var(--red);
-  color: var(--white);
-}
-.lyrics .recentOrders table tr td {
-  padding: 10px;
-}
-.lyrics .recentOrders table tr td:last-child {
-  text-align: end;
-}
-.lyrics .recentOrders table tr td:nth-child(2) {
-  text-align: end;
-}
-.lyrics .recentOrders table tr td:nth-child(3) {
-  text-align: center;
-}
-/* _______________ */
 
 .details .recentOrders {
   position: relative;
@@ -345,7 +290,7 @@ body {
   align-items: flex-start;
 }
 .cardHeader h2 {
-  font-weight: 600;
+  font-weight: 500;
   color: var(--red);
 }
 .cardHeader .btn {
