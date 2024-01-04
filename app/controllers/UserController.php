@@ -23,7 +23,8 @@ class UserController extends Controller {
         ];
 
         $this->view('pages/Registration/pwdReset', $data);
-       $this->verifyUser();
+        $this->verifyUser();
+        
     }
     public function verifyUser(){
         if(isset($_POST['verif'])){
@@ -40,17 +41,21 @@ class UserController extends Controller {
                 }
 
         }else{
-            $result = $this->UserModel->findUserByEmail($email);
-            print_r($result);
-            if($result){
+            $result = $this->UserModel->findUserByEmail1($email);
+            if($result && $result[0]->role !== 'admin'){
+                $this->UserModel->ResetPwd($email);
                 
                 
 
-            }else{
+            }elseif($result && $result[0]->role == 'admin'){
+                ?>
+                <p class=" text-center bg-red-500 rounded-xl text-white p-2 my-2">You are not allowed!</p>
+            <?php
+            } else{
                 ?>
                 <p class=" text-center bg-red-500 rounded-xl text-white p-2 my-2">Couldn't find user matching this email!</p>
 <?php
-            } 
+            }
         }
 
     }
@@ -90,7 +95,7 @@ class UserController extends Controller {
             }
 
             if (count($errors) > 0) {
-                
+
                 foreach ($errors as $error) {
                     echo '<div class="bg-red-500 rounded-xl text-white p-2 my-2">' . $error . '</div>';               
                 }   

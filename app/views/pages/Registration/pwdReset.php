@@ -28,7 +28,7 @@
             <a href="<?php echo URLROOT; ?>/UserController/register" class="text-red-600 hover:underline cursor-pointer">Try to login?</a>
         </div>
         <div class="text-center mt-7">
-            <button id="showSignUpFormBtn" class="text-red-600 hover:underline cursor-pointer" class="text-red-600 hover:underline cursor-pointer">Don't have an account? Sign Up</button>
+            <a href="<?php echo URLROOT; ?>/UserController/register" id="showSignUpFormBtn" class="text-red-600 hover:underline cursor-pointer" class="text-red-600 hover:underline cursor-pointer">Don't have an account? Sign Up</a>
         </div>
     </div>
     

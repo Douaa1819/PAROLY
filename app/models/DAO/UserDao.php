@@ -26,6 +26,23 @@ class UserDao {
             return false;
         }
     }
+    public function ResetPwd($email){
+        $token = bin2hex(random_bytes(16));
+        $token_hash = hash("sha256",$token);
+        $expiry = date("Y-m-d H:i:s",time() + 60 * 30);
+        try {
+            $this->db->query("UPDATE users SET reset_token_hash = :token,reset_token_expire_at = :expiry WHERE email = :email");
+            $this->db->bind(":token", $token_hash);
+            $this->db->bind(":expiry", $expiry);
+            $this->db->bind(":email", $email);
+            $this->db->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+
+    }
     public function findUserByEmail($email) {
         try {
             $this->db->query("SELECT * FROM users WHERE email = :email");
@@ -38,6 +55,23 @@ class UserDao {
             }
             
             return false;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    public function findUserByEmail1($email) {
+        try {
+            $this->db->query("SELECT * FROM users WHERE email = :email");
+            $this->db->bind(":email", $email);
+            $this->db->execute();
+           $result =  $this->db->fetchAll(PDO::FETCH_ASSOC);
+            
+            if (count($result) > 0) {
+                return $result;
+            }
+            
+            
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
