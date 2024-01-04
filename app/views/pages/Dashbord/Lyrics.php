@@ -17,7 +17,7 @@
 
     <!--=========================Modal====================-->
 
-    <div class="button-add-student float-end me-4">
+    <!-- <div class="button-add-student float-end me-4">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
             data-bs-whatever="@mdo">Add Lyrics</button>
 
@@ -57,9 +57,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- ================ Order Details List ================= -->
-    <div class="details">
+    <div class="lyrics">
         <div class="recentOrders">
             <div class="cardHeader">
                 <h2>Lyrics</h2>
@@ -69,151 +69,48 @@
             <table>
                 <thead>
                     <tr>
-                        <td>Name</td>
-                        <td>Image</td>
+                        <td>#</td>
+                        <td>Parole</td>
                         <td>Date</td>
-                        <td>User</td>
-                        <td>Status</td>
+                        <td>Nom_Client</td>
+                        <td>Email</td>
+                        <!-- <td>Status</td> -->
                         <td>Action</td>
                     </tr>
                 </thead>
 
                 <tbody>
-
+                    <?php foreach($data['Lyrics'] as $lyrics){?>
                     <tr>
-                        <td>Addidas Shoes</td>
-                        <td>$620</td>
-                        <td>Due</td>
-                        <td>Due</td>
-                        <td><span class="status inProgress">In Progress</span></td>
+                        <td><?= $lyrics->getIdLyrics()?></td>
+                        <td><?= $lyrics->getName_lyrics()?></td>
+                        <td><?= $lyrics->getDate()?></td>
+                        <td><?= $lyrics->getClient()->getUsername()?></td>
+                        <td><?= $lyrics->getClient()->getEmail()?></td>
+                        <!-- <td><span class="status inProgress">
+                                <?= $lyrics->getStatus() ?>
+                            </span></td> -->
                         <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
+                            <a
+                                href="<?php echo URLROOT?>/DashbordControler/DeletLyrics?id=<?= $lyrics->getIdLyrics()?>"><i
+                                    class="
+                                btn btn-danger far fa-trash"></i></a>
 
                         </td>
                     </tr>
+                    <?php   } ?>
 
-                    <tr>
-                        <td>Star Refrigerator</td>
-                        <td>$1200</td>
-                        <td>Paid</td>
-                        <td>Due</td>
-                        <td><span class="status delivered">Delivered</span></td>
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
 
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td>Dell Laptop</td>
-                        <td>$110</td>
-                        <td>Due</td>
-                        <td>Due</td>
-                        <td><span class="status pending">Pending</span></td>
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
 
-                        </td>
-                    </tr>
+
 
 
                 </tbody>
             </table>
         </div>
 
-        <!-- ================= New Customers ================ -->
-        <div class="recentCustomers">
-            <div class="cardHeader">
-                <h2>Lyrics </h2>
-            </div>
 
-            <table>
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer02.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Song<br />
-                            <span>Italy</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer01.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Song <br />
-                            <span>India</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer02.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Song <br />
-                            <span>Italy</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer01.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Song <br />
-                            <span>India</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer02.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Song <br />
-                            <span>Italy</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer01.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Song <br />
-                            <span>India</span>
-                        </h4>
-                    </td>
-                </tr>
-
-            </table>
-        </div>
     </div>
 </div>
 </div>

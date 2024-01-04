@@ -3,12 +3,15 @@
     private $GenreModel;
     private $AlbumModel;
     private $PlayListeModel;
+    private $LyricsModel;
     private $SongModel;
     public function __construct(){
       $this->GenreModel =$this->model('GenreDao');
       $this->AlbumModel =$this->model('AlbumDao');
       $this->PlayListeModel =$this->model('PalylisteDao');
+      $this->LyricsModel =$this->model('LyricsDao');
       $this->SongModel =$this->model('SongDao');
+      
 
     }
     
@@ -46,13 +49,13 @@
        
         $this->view('pages/Dashbord/Artiste', $data);
       }
-      public function Playliste(){
+      public function Playlist(){
         $data = [
-          'title' => 'Playliste',
+          'title' => 'Playlist',
           'Playliste'=>$this->PlayListeModel->getAll(),
         ];
        
-        $this->view('pages/Dashbord/Playliste', $data);
+        $this->view('pages/Dashbord/Playlist', $data);
       }
       public function song(){
         $data = [
@@ -67,6 +70,7 @@
       public function Lyrics(){
         $data = [
           'title' => 'Lyrics',
+          'Lyrics'=>$this->LyricsModel->getAll()
         ];
        
         $this->view('pages/Dashbord/Lyrics', $data);
@@ -122,10 +126,10 @@
                         $user=$_POST['user'] ;
                         
                         $this->PlayListeModel->InsertPlayliste($namePlayliste,$image,$user);
-                        header('Location: '.URLROOT.'/DashbordControler/Playliste');
+                        header('Location: '.URLROOT.'/DashbordControler/Playlist');
                       }
                       else {
-                        header('Location: '.URLROOT.'/DashbordControler/Playliste');
+                        header('Location: '.URLROOT.'/DashbordControler/Playlist');
                       }
                    }
                     // Dellete playliste
@@ -134,14 +138,17 @@
                         $id=$_GET['id'];
                         $this->PlayListeModel->DelletPlayliste( $id );
           
-                        header('Location: '.URLROOT.'/DashbordControler/Playliste');
+                        header('Location: '.URLROOT.'/DashbordControler/Playlist');
                       }
                       else{
-                        header('Location: '.URLROOT.'/DashbordControler/Playliste');
+                        header('Location: '.URLROOT.'/DashbordControler/Playlist');
           
                       }
                     }
                        //-------------------------  fin Play liste ---------------------------
+
+
+                       
                     // ------------------------------Add Song------------------------------------
                     public function Addsong(){
                       if(isset($_POST['AddSong'])){
@@ -165,7 +172,22 @@
                         }
                        
                       }
-          
+                                          // ------------------------------fin  Song------------------------------------
+
+                                    // ------------------------------Debu  Lyrics------------------------------------
+                                    
+                                    public function DeletLyrics(){
+                                      if(isset($_GET['id'])){
+                                        $idLyrics=$_GET['id'];
+                                        $this->LyricsModel->DeleteLyrics($idLyrics);
+                                        header('Location: '.URLROOT.'/DashbordControler/Lyrics');
+                                      }else {
+                                        header('Location: '.URLROOT.'/DashbordControler/Lyrics');
+              
+                                      }
+                                     
+                                    }
+                                      
     
   }
  
