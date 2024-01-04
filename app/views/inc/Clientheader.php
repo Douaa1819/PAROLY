@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 <?php 
 if($data['title']==''){
     $data['title']= SITENAME;
 }
-=======
-<?php
-// if($data['title']==''){
-$data['title'] = SITENAME;
-//}
->>>>>>> bb0f2fe8bf492357b4c517ddddec65695fcde4a8
 
 ?>
 <!DOCTYPE html>
@@ -25,17 +18,6 @@ $data['title'] = SITENAME;
     <title><?php echo $data['title']; ?></title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style1.css" />
-<<<<<<< HEAD
 </head>
 
 <body>
-=======
-
-</head>
-
-<body>
-
-</body>
-
-</html>
->>>>>>> bb0f2fe8bf492357b4c517ddddec65695fcde4a8
