@@ -75,7 +75,12 @@ class UserDao {
             return false;
         }
     }
+
+    
+
+
     public function getUser(){
         return $this->user;
     }
+
 }

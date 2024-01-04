@@ -17,6 +17,45 @@ class UserController extends Controller {
        $this->signup2();
        $this->login2();
     }
+    public function pwdReset(){
+        $data = [
+            'title' => 'pwdReset',
+        ];
+
+        $this->view('pages/Registration/pwdReset', $data);
+       $this->verifyUser();
+    }
+    public function verifyUser(){
+        if(isset($_POST['verif'])){
+            $email = $_POST['email']; 
+            $errors = array();
+            $patternEmail = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+            if(!preg_match($patternEmail,$email)){
+                array_push($errors,"Email is not valid!");
+            }
+            if (count($errors) > 0) {
+                foreach ($errors as $error) {
+                    echo '<div class="bg-red-500 rounded-xl text-white p-2 my-2">' . $error . '</div>';
+               
+                }
+
+        }else{
+            $result = $this->UserModel->findUserByEmail($email);
+            print_r($result);
+            if($result){
+                
+                
+
+            }else{
+                ?>
+                <p class=" text-center bg-red-500 rounded-xl text-white p-2 my-2">Couldn't find user matching this email!</p>
+<?php
+            } 
+        }
+
+    }
+}
+    
   
     
     public function signup2(){
@@ -51,12 +90,11 @@ class UserController extends Controller {
             }
 
             if (count($errors) > 0) {
-                foreach ($errors as $error) {
-                    echo '<div class="bg-red-500 rounded-xl text-white p-2 my-2">' . $error . '</div>';
-               
-                }
                 
-         
+                foreach ($errors as $error) {
+                    echo '<div class="bg-red-500 rounded-xl text-white p-2 my-2">' . $error . '</div>';               
+                }   
+
             } else {
     
                 $result = $this->UserModel->signup($fullName, $email, $password_hash, $role);
@@ -125,10 +163,10 @@ private function redirectBasedOnRole($role) {
             echo '<script>window.location.replace(" '.URLROOT.'/DashbordControler");</script>';
             break;
         case 'client':
-          //  echo '<script>window.location.replace("/DashbordControler.php");</script>';
+            echo '<script>window.location.replace("/DashbordControler.php");</script>';
             break;
         case 'artist':
-          //  echo '<script>window.location.replace("/DashbordControler.php");</script>';
+            echo '<script>window.location.replace("/DashbordControler.php");</script>';
             break;
         default:
            
