@@ -1,121 +1,148 @@
-<?php  include './assets/include/header.php'  ?>
+
+
+<?php require APPROOT . '/views/inc/Clientheader.php'; ?>
+<?php require APPROOT . '/views/inc/ClientSideBar.php'; ?>
 
 <!--=========================Main====================-->
 <div class="main">
     <div class="topbar">
         <div class="toggle">
             <ion-icon name="menu-outline"></ion-icon>
+
+
         </div>
+
+        <!-- <div class="search">
+            <label>
+                <input type="text" placeholder="Search here" />
+                <ion-icon name="search-outline"></ion-icon>
+            </label>
+        </div> -->
 
         <button class="text-white fs-2 btn">
             <ion-icon name="notifications-outline"></ion-icon>
             <!-- <img src="assets/imgs/customer01.jpg" alt="" /> -->
         </button>
-
     </div>
 
-    <!--=========================Modal====================-->
+    <!-- ======================= Cards ================== -->
+    <div class="cardBox">
+        <div class="card">
+            <div>
+                <div class="numbers">1,504</div>
+                <div class="cardName">Listens</div>
+            </div>
 
-    <div class="button-add-student float-end me-4">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-            data-bs-whatever="@mdo">Add Lyrics</button>
+            <div class="iconBx">
+                <!-- <ion-icon name="notifications-outline"></ion-icon> -->
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Lyrics</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="POST" action="./traitement/addcategory.php" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label for="Lyrics" class="col-form-label">Lyrics:</label>
-                                <input type="text" class="form-control" name="Lyrics">
-                            </div>
-                            <div class="mb-3">
-                                <label for="imgLyrics" class="col-form-label">Image:</label>
-                                <input type="file" class="form-control" name="imgLyrics">
-                            </div>
-                            <div class="mb-3">
-                                <label for="dateLyrics" class="col-form-label">Image:</label>
-                                <input type="date" class="form-control" name="dateLyrics">
-                            </div>
-                            <div class="mb-3">
-                                <label for="StatusLyrics" class="col-form-label">Status:</label>
-                                <input type="text" class="form-control" name="StatusLyrics">
-                            </div>
+                <ion-icon name="eye-outline"></ion-icon>
+            </div>
+        </div>
 
+        <div class="card">
+            <div>
+                <div class="numbers">80</div>
+                <div class="cardName">Tracks</div>
+            </div>
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="submit" class="btn btn-primary">Add Lyrics</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+            <div class="iconBx">
+                <ion-icon name="cart-outline"></ion-icon>
+            </div>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="numbers">284</div>
+                <div class="cardName">Lyrics</div>
+            </div>
+
+            <div class="iconBx">
+                <ion-icon name="chatbubbles-outline"></ion-icon>
+            </div>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="numbers">$7,842</div>
+                <div class="cardName">Balance</div>
+            </div>
+
+            <div class="iconBx">
+                <ion-icon name="cash-outline"></ion-icon>
             </div>
         </div>
     </div>
+
     <!-- ================ Order Details List ================= -->
     <div class="details">
         <div class="recentOrders">
             <div class="cardHeader">
-                <h2>Lyrics</h2>
-                <!-- <a href="#" class="btn">View All</a> -->
+                <h2>Top songs</h2>
+                <a href="#" class="btn">View All</a>
             </div>
 
             <table>
                 <thead>
                     <tr>
                         <td>Name</td>
-                        <td>Image</td>
-                        <td>Date</td>
-                        <td>User</td>
+                        <td>Album</td>
+                        
                         <td>Status</td>
-                        <td>Action</td>
                     </tr>
                 </thead>
 
                 <tbody>
+                    <tr>
+                        <td>Star Refrigerator</td>
+                        <td><img src="./assets/imgs/album1.jpg" class="w-32 h-32"> </td>
+                        
+                        <td><span class="status delivered">public</span></td>
+                    </tr>
+
+                   
+
+                    <tr>
+                        <td>Apple Watch</td>
+                        <td><img src="./assets/imgs/album1.jpg" class="w-32 h-32"> </td>
+                       
+                        <td><span class="status return">private</span></td>
+                    </tr>
 
                     <tr>
                         <td>Addidas Shoes</td>
                         <td>$620</td>
-                        <td>Due</td>
-                        <td>Due</td>
+                        
                         <td><span class="status inProgress">In Progress</span></td>
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-
-                        </td>
                     </tr>
 
                     <tr>
                         <td>Star Refrigerator</td>
-                        <td>$1200</td>
-                        <td>Paid</td>
-                        <td>Due</td>
+                        <td><img src="./assets/imgs/album1.jpg" class="w-32 h-32"> </td>
+                        
                         <td><span class="status delivered">Delivered</span></td>
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-
-                        </td>
                     </tr>
 
                     <tr>
                         <td>Dell Laptop</td>
                         <td>$110</td>
-                        <td>Due</td>
-                        <td>Due</td>
+                        
                         <td><span class="status pending">Pending</span></td>
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-
-                        </td>
                     </tr>
 
+                    <tr>
+                        <td>Apple Watch</td>
+                        <td><img src="./assets/imgs/album1.jpg" class="w-32 h-32"> </td>
+                      
+                        <td><span class="status return">Return</span></td>
+                    </tr>
 
+                    <tr>
+                        <td>Addidas Shoes</td>
+                        <td>$620</td>
+                       
+                        <td><span class="status inProgress">In Progress</span></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -123,7 +150,7 @@
         <!-- ================= New Customers ================ -->
         <div class="recentCustomers">
             <div class="cardHeader">
-                <h2>Lyrics </h2>
+                <h2>Recent Customers</h2>
             </div>
 
             <table>
@@ -135,7 +162,7 @@
                     </td>
                     <td>
                         <h4>
-                            Song<br />
+                            David <br />
                             <span>Italy</span>
                         </h4>
                     </td>
@@ -149,7 +176,7 @@
                     </td>
                     <td>
                         <h4>
-                            Song <br />
+                            Amit <br />
                             <span>India</span>
                         </h4>
                     </td>
@@ -163,7 +190,7 @@
                     </td>
                     <td>
                         <h4>
-                            Song <br />
+                            David <br />
                             <span>Italy</span>
                         </h4>
                     </td>
@@ -177,7 +204,7 @@
                     </td>
                     <td>
                         <h4>
-                            Song <br />
+                            Amit <br />
                             <span>India</span>
                         </h4>
                     </td>
@@ -191,7 +218,7 @@
                     </td>
                     <td>
                         <h4>
-                            Song <br />
+                            David <br />
                             <span>Italy</span>
                         </h4>
                     </td>
@@ -205,12 +232,39 @@
                     </td>
                     <td>
                         <h4>
-                            Song <br />
+                            Amit <br />
                             <span>India</span>
                         </h4>
                     </td>
                 </tr>
 
+                <tr>
+                    <td width="60px">
+                        <div class="imgBx">
+                            <img src="assets/imgs/customer01.jpg" alt="" />
+                        </div>
+                    </td>
+                    <td>
+                        <h4>
+                            David <br />
+                            <span>Italy</span>
+                        </h4>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="60px">
+                        <div class="imgBx">
+                            <img src="assets/imgs/customer02.jpg" alt="" />
+                        </div>
+                    </td>
+                    <td>
+                        <h4>
+                            Amit <br />
+                            <span>India</span>
+                        </h4>
+                    </td>
+                </tr>
             </table>
         </div>
     </div>
