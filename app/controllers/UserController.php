@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 
 class UserController extends Controller {
     private $UserModel;
@@ -100,11 +100,13 @@ public function login2(){
         } else {
             // Assuming $user_DAO is an instance of the UserDAO class
             $Result = $this->UserModel->login($email);
-
+          
             if ($Result &&  count($Result) > 0) {
                 $user = $Result[0];
                 $enteredPass = $user->getPassword();
                 $role = $user->getRole();
+                $_SESSION['email'] =  $email ;
+                $_SESSION['id'] = $user->getid();
                 if ($user && password_verify($password, $enteredPass)) {
                     $this->redirectBasedOnRole($role);
                 } else {
@@ -120,8 +122,10 @@ public function login2(){
 }
 
 private function redirectBasedOnRole($role) {
+    
     switch ($role) {
         case 'admin':
+          
             echo '<script>window.location.replace(" '.URLROOT.'/DashbordControler");</script>';
             break;
         case 'client':

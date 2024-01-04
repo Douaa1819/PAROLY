@@ -4,18 +4,22 @@
 
 
 class User {
+    private $id;
     private $email;
     private $password;
     private $role;
     private $img;
 
-    public function __construct($email = null , $password = null , $role = null , $img = null) {
+    public function __construct($id = null , $email = null , $password = null , $role = null , $img = null) {
         $this->email = $email;
         $this->password = $password;
         $this->role = $role;
         $this->img = $img;
+        $this->id = $id;
     }
-
+    public function getid() {
+        return $this->id;
+    }
     public function getEmail() {
         return $this->email;
     }

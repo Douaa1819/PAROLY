@@ -1,4 +1,7 @@
 <?php
+session_start();
+echo $gmail =  $_SESSION['email'];
+echo $id = $_SESSION['id'];
   class DashbordControler extends Controller {
     private $GenreModel;
     private $AlbumModel;
