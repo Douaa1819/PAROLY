@@ -1,6 +1,6 @@
-
 <?php require APPROOT . '/views/inc/Clientheader.php'; ?>
 <?php require APPROOT . '/views/inc/ClientSideBar.php'; ?>
+<?php require APPROOT . '/views/inc/footer.php'; ?>
 
 <body>
   <div class="main">
@@ -19,8 +19,8 @@
 
       <ion-icon name="filter" class="fliter"></ion-icon>
       <div class="btns">
-      <button class="sign-up">Sign Up</button>
-      <button class="log-in">Log In</button>
+        <button class="sign-up">Sign Up</button>
+        <button class="log-in">Log In</button>
       </div>
     </div>
 
@@ -87,21 +87,21 @@
           <img src="./public/image/album1.png" alt="">
           <div class="songinfo">
             <div class="txt">
-            <h5>God On The Weekend</h5>
-            <p>Ian Asher</p>
+              <h5>God On The Weekend</h5>
+              <p>Ian Asher</p>
             </div>
             <div class="icon">
-            <ion-icon name="pencil-sharp"></ion-icon>
+              <ion-icon name="pencil-sharp"></ion-icon>
+            </div>
           </div>
-        </div>
-        <div class="play">
+          <div class="play">
             <div class="line"></div>
             <div class="icons">
-            <ion-icon name="caret-back-sharp"></ion-icon>
-            <ion-icon name="pause-circle" class="pause"></ion-icon>
-            <ion-icon name="caret-forward-sharp"></ion-icon>
+              <ion-icon name="caret-back-sharp"></ion-icon>
+              <ion-icon name="pause-circle" class="pause"></ion-icon>
+              <ion-icon name="caret-forward-sharp"></ion-icon>
             </div>
-          </div> 
+          </div>
         </div>
 
       </div>
