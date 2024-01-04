@@ -118,8 +118,8 @@ $phpMaillerId = $_SESSION['id'];
       }
            //------------------------- fin Genere---------------------------
     
-         
-                    //------------------------- Play liste ---------------------------
+             
+                    //------------------------- PPlay liste ---------------------------
                     // ADD pLAY LISTE 
                     public function addPlayliste(){
                       if(isset($_POST['playliste'])){
