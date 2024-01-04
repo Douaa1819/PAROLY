@@ -6,7 +6,6 @@ $init = new Core;
 <?php require APPROOT . '/views/inc/Clientheader.php'; ?>
 <?php require APPROOT . '/views/inc/ClientSideBar.php'; ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
