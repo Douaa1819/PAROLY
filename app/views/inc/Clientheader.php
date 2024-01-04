@@ -1,7 +1,8 @@
 <?php 
-if($data['title']==''){
+// if($data['title']==''){
     $data['title']= SITENAME;
-}
+//}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,8 +20,9 @@ if($data['title']==''){
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title><?php echo $data['title']; ?></title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css" />
-    
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style1.css" />
 </head>
-
 <body>
+
+</body>
+</html>
