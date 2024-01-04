@@ -14,16 +14,16 @@
     					<span class="icon"> <ion-icon name="home-outline"></ion-icon> </span>
     					<span class="title">Home</span>
     				</a>
-	 				</li>
-					 <li>
+    			</li>
+    			<li>
     				<a href="../pages/clientdashboard.php">
     					<span class="icon">
-							<ion-icon name="person"></ion-icon>
+    						<ion-icon name="person-outline"></ion-icon>
     					</span>
     					<span class="title">Account</span>
     				</a>
     			</li>
-					<li>
+    			<li>
     				<a href="Playliste.php">
     					<span class="icon">
     						<ion-icon name="invert-mode-outline"></ion-icon>

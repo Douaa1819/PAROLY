@@ -1,5 +1,6 @@
 <?php require APPROOT . '/views/inc/Clientheader.php'; ?>
 <?php require APPROOT . '/views/inc/ClientSideBar.php'; ?>
+<?php require APPROOT . '/views/inc/footer.php'; ?>
 
 <body>
     <div class="main">
@@ -16,11 +17,28 @@
                 </label>
             </div>
 
+<<<<<<< HEAD
             <ion-icon name="filter" class="fliter"></ion-icon>
             <div class="btns">
                 <button class="sign-up">Sign Up</button>
                 <button class="log-in">Log In</button>
             </div>
+=======
+      <ion-icon name="filter" class="fliter"></ion-icon>
+      <div class="btns">
+        <button class="sign-up">Sign Up</button>
+        <button class="log-in">Log In</button>
+      </div>
+    </div>
+
+    <!-- ======================= Cards ================== -->
+    <div class="cardBox">
+      <div class="card c1">
+        <div class="title">
+          <h1>Discover, Create, Share:</h1>
+          <p>Lyrically, Where Music Meets Your Words!</p>
+          <button>Explore </button>
+>>>>>>> bb0f2fe8bf492357b4c517ddddec65695fcde4a8
         </div>
 
         <!-- ======================= Cards ================== -->
@@ -69,6 +87,7 @@
       Feelin' like I've seen these signs
       Like somewhere in a past life
           </pre>
+<<<<<<< HEAD
                 </div>
                 <div class="other">
                     <div class="reaction">
@@ -78,6 +97,41 @@
                     <button>Other Lyrics</button>
                 </div>
             </div>
+=======
+        </div>
+        <div class="other">
+          <div class="reaction">
+            <ion-icon name="thumbs-up-outline"></ion-icon>
+            <ion-icon name="thumbs-down-outline"></ion-icon>
+          </div>
+          <button>Other Lyrics</button>
+        </div>
+      </div>
+
+      <!-- ================= New Customers ================ -->
+      <div class="recentCustomers">
+        <h2>Playing now</h2>
+        <div class="song">
+          <img src="./public/image/album1.png" alt="">
+          <div class="songinfo">
+            <div class="txt">
+              <h5>God On The Weekend</h5>
+              <p>Ian Asher</p>
+            </div>
+            <div class="icon">
+              <ion-icon name="pencil-sharp"></ion-icon>
+            </div>
+          </div>
+          <div class="play">
+            <div class="line"></div>
+            <div class="icons">
+              <ion-icon name="caret-back-sharp"></ion-icon>
+              <ion-icon name="pause-circle" class="pause"></ion-icon>
+              <ion-icon name="caret-forward-sharp"></ion-icon>
+            </div>
+          </div>
+        </div>
+>>>>>>> bb0f2fe8bf492357b4c517ddddec65695fcde4a8
 
             <!-- ================= New Customers ================ -->
             <div class="recentCustomers">
