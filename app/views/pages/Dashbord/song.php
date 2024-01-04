@@ -29,22 +29,28 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="./traitement/addcategory.php" enctype="multipart/form-data">
+                        <form method="POST" action="<?= URLROOT ?>/DashbordControler/AddSong"
+                            enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="Songname" class="col-form-label">Song:</label>
                                 <input type="text" class="form-control" name="Songname">
                             </div>
                             <div class="mb-3">
                                 <label for="AlbumSong" class="col-form-label">Album:</label>
-                                <select name="AlbumSong" id="">
-                                    <option value=""></option>
+                                <select name="AlbumSong" class="form-select" id="albumSelect">
+                                    <option selected disabled>Open this select menu</option>
+                                    <?php foreach ($data['Album'] as $album) : ?>
+                                    <option value=" <?= $album->getId() ?>">
+                                        <?=  $album->getName(); ?>
+                                    </option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
 
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="submit" class="btn btn-primary">Add Song</button>
+                                <button type="submit" name="AddSong" class="btn btn-primary">Add Song</button>
                             </div>
                         </form>
                     </div>
@@ -53,43 +59,8 @@
         </div>
     </div>
     <!-- FIN Add SONG  -->
-    <!-- Add lyrics Song  -->
-    <div class="button-add-student float-end me-4">
+    <!-- ------------------------Modal lyrics---------------------------------------- -->
 
-
-        <div class="modal fade" id="lyricsSongModal" tabindex="-1" aria-labelledby="lyricsSongModalModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="lyricsSongModalModalLabel">Add Song</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="POST" action="./traitement/addcategory.php" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label for="Songname" class="col-form-label">Song:</label>
-                                <input type="text" class="form-control" name="Songname">
-                            </div>
-                            <div class="mb-3">
-                                <label for="AlbumSong" class="col-form-label">lyrics:</label>
-                                <select name="AlbumSong" id="">
-                                    <option value=""></option>
-                                </select>
-                            </div>
-
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="submit" class="btn btn-primary">Add Song</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- fin lyrics Song -->
     <!-- ================ Order Details List ================= -->
     <div class="details">
         <div class="recentOrders">
@@ -101,43 +72,34 @@
             <table>
                 <thead>
                     <tr>
-                        <td>Name</td>
+                        <td>#</td>
+                        <td>Song</td>
                         <td>Album</td>
                         <td>Action</td>
                     </tr>
                 </thead>
 
                 <tbody>
+                    <?php   foreach($data['song'] as $song){ ?>
 
                     <tr>
-                        <td>Addidas Shoes</td>
-                        <td>Due</td>
+                        <td><?=  $song->getIdSong() ?>
+                        </td>
+                        <td><?=  $song->getNameSong() ?></td>
+                        <td><?=  $song->getAlbum_name() ?></td>
                         <!-- <td><span class="status inProgress">In Progress</span></td> -->
 
-                        <td> <a type="button"><i class=" btn btn-primary far fa-pen"></i></a>
-
-                            <a type="button"><i class="btn btn-danger far fa-trash"></i></a>
-                            <a type="button" data-bs-toggle="modal" data-bs-target="#lyricsSongModal"
+                        <td>
+                            <a href="<?= URLROOT ?>/DashbordControler/DelletSong?id=<?= $song->getIdSong()  ?>"
+                                type="button"><i class="btn btn-danger far fa-trash"></i></a>
+                            <!-- <a type="button" data-bs-toggle="modal" data-bs-target="#lyricsSongModal"
                                 data-bs-whatever="@mdo">
                                 <ion-icon class="btn btn-primary" name="add-circle-outline"></ion-icon>
-                            </a>
+                            </a> -->
 
                         </td>
                     </tr>
-
-                    <tr>
-                        <td>Dell Laptop</td>
-                        <td>Due</td>
-                        <!-- <td><span class="status pending">Pending</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-                            <a type="button" data-bs-toggle="modal" data-bs-target="#lyricsSongModal"
-                                data-bs-whatever="@mdo">
-                                <ion-icon class="btn btn-primary" name="add-circle-outline"></ion-icon>
-                            </a>
-
-                        </td>
-                    </tr>
+                    <?php } ?>
 
 
                 </tbody>
@@ -145,12 +107,12 @@
         </div>
 
         <!-- ================= New Customers ================ -->
-        <div class="recentCustomers">
+        <div class=" recentCustomers">
             <div class="cardHeader">
                 <h2>Song </h2>
             </div>
 
-            <table>
+            <!-- <table>
                 <tr>
                     <td width="60px">
                         <div class="imgBx">
@@ -235,7 +197,7 @@
                     </td>
                 </tr>
 
-            </table>
+            </table> -->
         </div>
     </div>
 </div>

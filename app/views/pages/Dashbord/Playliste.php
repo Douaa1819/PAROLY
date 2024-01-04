@@ -28,26 +28,29 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="./traitement/addcategory.php" enctype="multipart/form-data">
+                        <form method="POST" action="<?= URLROOT ?>/DashbordControler/addPlayliste"
+                            enctype="multipart/form-data">
+
                             <div class="mb-3">
-                                <label for="img" class="col-form-label">Playliste:</label>
-                                <input type="text" class="form-control" name="cat">
+                                <label for="Playliste" class="col-form-label">Playliste:</label>
+                                <input type="text" class="form-control" name="Playliste">
                             </div>
                             <div class="mb-3">
                                 <label for="img" class="col-form-label">Image:</label>
-                                <input type="file" class="form-control" name="cat">
+                                <input type="file" class="form-control" name="image">
                             </div>
                             <div class="mb-3">
-                                <label for="img" class="col-form-label">Genre:</label>
-                                <select name="" id="">
-                                    <option value=""></option>
+                                <label for="user" class="col-form-label">User:</label>
+                                <select name="user" id="">
+                                    <option value="1">Anwar</option>
+                                    <option value="2">amine</option>
                                 </select>
                             </div>
 
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="submit" class="btn btn-primary">Add Playliste</button>
+                                <button type="submit" name="playliste" class="btn btn-primary">Add Playliste</button>
                             </div>
                         </form>
                     </div>
@@ -59,57 +62,39 @@
     <div class="details">
         <div class="recentOrders">
             <div class="cardHeader">
-                <h2>Playliste</h2>
+                <h2>Playlist</h2>
                 <!-- <a href="#" class="btn">View All</a> -->
             </div>
 
             <table>
                 <thead>
                     <tr>
+                        <td>#</td>
                         <td>Name</td>
                         <td>Image</td>
                         <td>User</td>
-
                         <td>Action</td>
                     </tr>
                 </thead>
 
                 <tbody>
-
+                    <?php   foreach($data['Playliste'] as $Playliste){ ?>
                     <tr>
-                        <td>Addidas Shoes</td>
-                        <td>$620</td>
-                        <td>Due</td>
-                        <!-- <td><span class="status inProgress">In Progress</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
+                        <td><?= $Playliste->getPlayliste_id()?></td>
+                        <td><?= $Playliste->getUsername()?></td>
+                        <td><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode( $Playliste->getImage()); ?>"
+                                style="width: 50px; border-radius: 10px;" />
+
+                        </td>
+                        <td><?= $Playliste->getUser_name()?></td>
+                        <td>
+                            <a
+                                href="<?= URLROOT ?>/DashbordControler/DelletPlayliste?id=<?= $Playliste->getPlayliste_id()?>"><i
+                                    class="btn btn-danger far fa-trash"></i></a>
 
                         </td>
                     </tr>
-
-                    <tr>
-                        <td>Star Refrigerator</td>
-                        <td>$1200</td>
-                        <td>Paid</td>
-                        <!-- <td><span class="status delivered">Delivered</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Dell Laptop</td>
-                        <td>$110</td>
-                        <td>Due</td>
-                        <!-- <td><span class="status pending">Pending</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-
-                        </td>
-                    </tr>
-
-
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
@@ -117,96 +102,34 @@
         <!-- ================= New Customers ================ -->
         <div class="recentCustomers">
             <div class="cardHeader">
-                <h2>Album </h2>
+                <h2>Playlist </h2>
             </div>
 
             <table>
+                <?php   foreach($data['Playliste'] as $Playliste){ ?>
                 <tr>
                     <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer02.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album<br />
-                            <span>Italy</span>
-                        </h4>
-                    </td>
-                </tr>
 
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer01.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>India</span>
-                        </h4>
-                    </td>
-                </tr>
+                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode( $Playliste->getImage()); ?>"
+                            style="width: 30px; border-radius: 5px;" />
 
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer02.jpg" alt="" />
-                        </div>
                     </td>
                     <td>
                         <h4>
-                            Album <br />
-                            <span>Italy</span>
+                            <?= $Playliste->getUsername()?><br />
+                            <span><?= $Playliste->getUser_name()?></span>
                         </h4>
                     </td>
                 </tr>
+                <?php } ?>
 
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer01.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>India</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer02.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>Italy</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer01.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>India</span>
-                        </h4>
-                    </td>
-                </tr>
 
             </table>
         </div>
+        <!-- Modal playListe -->
+
+        <!--=================New modal================-->
+
     </div>
 </div>
 </div>
