@@ -39,13 +39,7 @@
                                 <label for="img" class="col-form-label">Image:</label>
                                 <input type="file" class="form-control" name="image">
                             </div>
-                            <div class="mb-3">
-                                <label for="user" class="col-form-label">User:</label>
-                                <select name="user" id="">
-                                    <option value="1">Anwar</option>
-                                    <option value="2">amine</option>
-                                </select>
-                            </div>
+                       
 
 
                             <div class="modal-footer">
@@ -62,7 +56,7 @@
     <div class="details">
         <div class="recentOrders">
             <div class="cardHeader">
-                <h2>Playliste</h2>
+                <h2>Playlist</h2>
                 <!-- <a href="#" class="btn">View All</a> -->
             </div>
 
@@ -102,7 +96,7 @@
         <!-- ================= New Customers ================ -->
         <div class="recentCustomers">
             <div class="cardHeader">
-                <h2>Album </h2>
+                <h2>Playlist </h2>
             </div>
 
             <table>
@@ -116,8 +110,8 @@
                     </td>
                     <td>
                         <h4>
-                            Album<br />
-                            <span><?= $Playliste->getUsername()?></span>
+                            <?= $Playliste->getUsername()?><br />
+                            <span><?= $Playliste->getUser_name()?></span>
                         </h4>
                     </td>
                 </tr>

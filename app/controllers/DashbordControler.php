@@ -1,7 +1,7 @@
 <?php
 session_start();
-echo $gmail =  $_SESSION['email'];
-echo $id = $_SESSION['id'];
+$phpMaillerGmail =  $_SESSION['email'];
+$phpMaillerId = $_SESSION['id'];
   class DashbordControler extends Controller {
     private $GenreModel;
     private $AlbumModel;
@@ -122,7 +122,8 @@ echo $id = $_SESSION['id'];
                        $namePlayliste=$_POST['Playliste'];
                        $tmp_name= $_FILES['image']['tmp_name'];
                        $image = file_get_contents($tmp_name);
-                        $user=$_POST['user'] ;
+                      //  $user=$_POST['user'] ;
+                      $user =  $_SESSION['id'];
                         
                         $this->PlayListeModel->InsertPlayliste($namePlayliste,$image,$user);
                         header('Location: '.URLROOT.'/DashbordControler/Playliste');
