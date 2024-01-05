@@ -32,7 +32,7 @@ class SongDao{
     
         return $array;
     }
-    public function InsertSong($nameSong,$idAlbum,$id){
+    public function InsertSong($nameSong,$idAlbum){
         
         $req="INSERT INTO song(name,album_id) VALUES (:nameSong,:idAlbum) ";
         $this->db->query($req);
