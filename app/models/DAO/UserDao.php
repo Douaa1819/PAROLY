@@ -60,6 +60,8 @@ class UserDao {
                     foreach ($userData as $data) {
                         $dataArray = get_object_vars($data);
                         $user[] = new User(
+                            $dataArray['user_id'],
+                             $dataArray['username'],
                             $dataArray['email'],
                             $dataArray['password'],
                             $dataArray['role'],
