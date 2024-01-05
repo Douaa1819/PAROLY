@@ -3,10 +3,11 @@
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'paroly');
+define('DB_NAME', 'parol');
 
 // App Root
 // app
+// 
 define('APPROOT', dirname(dirname(__FILE__)));
 // URL Root public
 define('URLROOT', 'http://localhost/paroly');

@@ -49,7 +49,7 @@
         </div>
     </div>
     <!-- ================ Order Details List ================= -->
-    <div class="details">
+    <div class="lyrics">
         <div class="recentOrders">
             <div class="cardHeader">
                 <h2>Genre</h2>

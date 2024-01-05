@@ -39,11 +39,11 @@
                 </li>
 
                 <li>
-                    <a href="<?php echo URLROOT; ?>/DashbordControler/Playliste">
+                    <a href="<?php echo URLROOT; ?>/DashbordControler/Playlist">
                         <span class="icon">
                             <ion-icon name="invert-mode-outline"></ion-icon>
                         </span>
-                        <span class="title">Playltiste</span>
+                        <span class="title">Playltist</span>
                     </a>
                 </li>
 
