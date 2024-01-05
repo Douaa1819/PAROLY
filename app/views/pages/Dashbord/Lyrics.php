@@ -145,7 +145,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="genre" class="col-form-label">Parol:</label>
-                            <input id="msg" type="text" class="form-control" name="MSG">
+                            <input id="msg" type="text" class="form-control" name="MSG" disabled>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

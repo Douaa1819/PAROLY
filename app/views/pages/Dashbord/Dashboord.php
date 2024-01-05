@@ -41,7 +41,7 @@
             <div class="iconBx">
                 <!-- <ion-icon name="notifications-outline"></ion-icon> -->
 
-                <ion-icon name="eye-outline"></ion-icon>
+                <ion-icon name="newspaper-outline"></ion-icon>
             </div>
         </div>
 
@@ -52,7 +52,7 @@
             </div>
 
             <div class="iconBx">
-                <ion-icon name="cart-outline"></ion-icon>
+                <ion-icon name="happy-outline"></ion-icon>
             </div>
         </div>
 
@@ -63,7 +63,7 @@
             </div>
 
             <div class="iconBx">
-                <ion-icon name="chatbubbles-outline"></ion-icon>
+                <ion-icon name="heart-dislike-outline"></ion-icon>
             </div>
         </div>
 
@@ -74,13 +74,13 @@
             </div>
 
             <div class="iconBx">
-                <ion-icon name="cash-outline"></ion-icon>
+                <ion-icon name="people-circle-outline"></ion-icon>
             </div>
         </div>
     </div>
 
     <!-- ================ Order Details List ================= -->
-    <div class="details">
+    <div class="lyrics">
         <div class="recentOrders">
             <div class="cardHeader">
                 <h2>CLient</h2>
@@ -111,7 +111,7 @@
         </div>
 
         <!-- ================= New Customers ================ -->
-        <div class="recentCustomers">
+        <!-- <div class="recentCustomers">
             <div class="cardHeader">
                 <h2>Recent Customers</h2>
             </div>
@@ -229,7 +229,7 @@
                     </td>
                 </tr>
             </table>
-        </div>
+        </div> -->
     </div>
 </div>
 </div>
