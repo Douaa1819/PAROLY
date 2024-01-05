@@ -40,13 +40,18 @@ for (let i = 0; i < updateBtns.length; i++) {
 const approve_btn = document.querySelectorAll(".approve_btn");
 const lyrics_id = document.querySelector("#idlyrics");
 const email_input = document.querySelector("#email");
+const Parol = document.querySelector("#msg");
 
 for (let i = 0; i < approve_btn.length; i++) {
-  approve_btn[i].addEventListener("click", () => {
-    // console.log("test");
-    console.log(approve_btn[i].dataset.key);
-    console.log(approve_btn[i].attributes.value.value);
-    lyrics_id.setAttribute("value", approve_btn[i].dataset.key);
-    email_input.value = approve_btn[i].attributes.value.value;
-  });
+    approve_btn[i].addEventListener("click", () => {
+        console.log(approve_btn[i].dataset.key);
+        console.log(approve_btn[i].getAttribute("value"));
+        console.log(approve_btn[i].dataset.anotherValue);
+
+        lyrics_id.value = approve_btn[i].dataset.key;
+        email_input.value = approve_btn[i].getAttribute("value");
+        Parol.value = approve_btn[i].dataset.anotherValue;
+
+       
+    });
 }

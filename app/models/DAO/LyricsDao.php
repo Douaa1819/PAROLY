@@ -9,7 +9,7 @@ class LyricsDao{
   }
   public function getAll(){
     $req="SELECT lyrics.id id,lyrics.name_lyrics nom,lyrics.date date,lyrics.status statu,users.user_id clientid,users.username nom_client,users.email email,song.name Music
-    FROM lyrics,users,song where lyrics.user_id=users.user_id and lyrics.id_Song=song.id and users.role='CLIENT'";
+    FROM lyrics,users,song where lyrics.user_id=users.user_id and lyrics.id_Song=song.id and users.role='client'";
     $this->db->query($req);
    $res= $this->db->fetchALL();
     $Lyrics=array();
