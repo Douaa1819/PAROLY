@@ -4,9 +4,10 @@
 
 class UserController extends Controller {
     private $UserModel;
-    
+    private $PHPMailer;
     public function __construct(){
         $this->UserModel = $this->model('UserDao');
+        $this->PHPMailer=$this->model('PHPMailerDao');
         
     }
 
@@ -16,8 +17,8 @@ class UserController extends Controller {
         ];
 
         $this->view('pages/Registration/register', $data);
-       $this->signup2();
-       $this->login2();
+        $this->signup2();
+        $this->login2();
     }
     public function pwdReset(){
         $data = [
@@ -28,18 +29,28 @@ class UserController extends Controller {
 
         $this->view('pages/Registration/pwdReset', $data);
         $this->verifyUser();
+
         
         
     }
     public function verify(){
         $data = [
             'title' => 'verify',
+           
         ];
+        
         $this->view('pages/Registration/verify',$data);
+
+        
     }
+    
+
+  
+
     public function verifyUser(){
         if(isset($_POST['verif'])){
             $email = $_POST['email']; 
+
             $errors = array();
             $patternEmail = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
             if(!preg_match($patternEmail,$email)){
@@ -54,15 +65,19 @@ class UserController extends Controller {
         }else{
             $result = $this->UserModel->findUserByEmail1($email);
             if($result && $result[0]->role !== 'admin'){
-                // $this->UserModel->ResetPwd($email);
-                // $mailer = new Send();
-                // $to = $email;
-                // $subject = "Password Reset";
-                // $body = "your one time password is: "+ $result[0]->reset_token_hash;
-                // $mailer->send($to,$subject,$body);
-
-                header('Location: '.URLROOT.'/UserController/verify');
-                exit();  
+                $token = $this->UserModel->ResetPwd($email);
+                $mailer = new PHPMailerDao();
+                $to = $email;
+                $link = 'http://localhost/paroly/UserController/verify';
+                $subject = "Password Reset";
+                $body = "Click here to reset your password:  ".$link."?token=".$token."";
+                $mailer->sendEmail($to,$subject,$body);
+                $_SESSION['token'] = $token;
+                $_SESSION['target-email'] = $email;
+                
+         
+                
+         $this->ChangePassword();
 
             }elseif($result && $result[0]->role == 'admin'){
                 ?>
@@ -77,7 +92,43 @@ class UserController extends Controller {
 
     }
 }
+public function ChangePassword(){
     
+    //  echo $email;
+ $email = $_SESSION['target-email'];
+
+
+ if(isset($_GET['token'])){
+    $token = $_GET['token'];
+ }
+
+ if(isset($_POST['go'])){
+     
+        $pwd1 = $_POST['pass1'];
+        $pwd2 = $_POST['Pass2'];
+        $errors = array();
+        $patternPassword = '/^.{4,}$/';
+        if (!preg_match($patternPassword, $pwd2)) {
+         array_push($errors, "Please use at least 4 characters");
+        }
+        if($pwd1 == $pwd2 && $token == $_SESSION['token'] ){
+            $this->UserModel->ReinsertPwd($pwd1,$email);        
+            header('Location: '.URLROOT.'/UserController/register');
+          if ($pwd1 !== $pwd2 || $token !== $_GET['token']){
+         ?>
+         <p class=" text-center bg-red-500 rounded-xl text-white p-2 my-2">Invalid info!</p>
+        <?php
+
+
+     }
+
+         }
+
+        
+    
+    
+     }
+}
   
     
     public function signup2(){

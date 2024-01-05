@@ -36,12 +36,29 @@ class UserDao {
             $this->db->bind(":expiry", $expiry);
             $this->db->bind(":email", $email);
             $this->db->execute();
-            return true;
+            return $token;
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
         }
 
+    }
+    public function ReinsertPwd($pwd,$email){
+        try {
+            // Hash the password before storing it in the database
+            $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
+    
+            // Update the database with the hashed password
+            $this->db->query("UPDATE users SET password = :pwd WHERE email = :email");
+            $this->db->bind(":pwd", $hashedPwd);
+            $this->db->bind(":email", $email);
+            $this->db->execute();
+    
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
     public function findUserByEmail($email) {
         try {
