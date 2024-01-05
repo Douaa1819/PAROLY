@@ -12,6 +12,8 @@
 -[Aya ALghayour](https://github.com/AyaElrhayour)
 -[Amine Chaguer](https://github.com/chaguer12)
 -[Anouar Bouchahboune](https://github.com/anouar-devlopeur)
+<img width="656" alt="image" src="https://github.com/Douaa1819/PAROLY/assets/76851076/70c6f262-3a55-4f0c-9743-244e60293d76">
+
 
 
 
