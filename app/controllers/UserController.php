@@ -7,9 +7,10 @@ unset($_SESSION['role']);
 class UserController extends Controller
 {
     private $UserModel;
-    public function __construct()
-    {
+    public function __construct(){
         $this->UserModel = $this->model('UserDao');
+        $this->PHPMailer=$this->model('PHPMailerDao');
+        
     }
 
     public function index()
@@ -19,14 +20,13 @@ class UserController extends Controller
         ];
 
         $this->view('pages/Registration/register', $data);
-        $this->signup2();
-        $this->login2();
+       $this->signup2();
+       $this->login2();
     }
-
-
-    public function signup2()
-    {
-
+  
+    
+    public function signup2(){
+      
         if (isset($_POST["signup"])) {
             $fullName = $_POST["name"];
             $email = $_POST["email"];
@@ -57,9 +57,13 @@ class UserController extends Controller
             }
 
             if (count($errors) > 0) {
+
                 foreach ($errors as $error) {
                     echo '<div class="bg-red-500 rounded-xl text-white p-2 my-2">' . $error . '</div>';
+               
                 }
+                
+         
             } else {
 
                 $result = $this->UserModel->signup($fullName, $email, $password_hash, $role);
@@ -126,25 +130,22 @@ class UserController extends Controller
         $this->view('pages/Registration/register');
     }
 
-    private function redirectBasedOnRole($role)
-    {
-
-        switch ($role) {
-            case 'admin':
-                $_SESSION['id'];
-             echo '<script>window.location.replace(" ' . URLROOT . '/DashbordControler");</script>';
-                break;
-            case 'client':
-                $_SESSION['id'];
-                echo '<script>window.location.replace(" ' . URLROOT . '/ClientController");</script>';
-                break;
-            case 'artist':
-                $_SESSION['id'];
-                echo '<script>window.location.replace(" ' . URLROOT . '/Artist");</script>';
-                break;
-            default:
-
-                break;
-        }
+private function redirectBasedOnRole($role) {
+    switch ($role) {
+        case 'admin':
+            //  header('Location: ' . URLROOT.'/DashbordControler');
+            echo '<script>window.location.replace(" '.URLROOT.'/DashbordControler");</script>';
+            break;
+        case 'client':
+          //  echo '<script>window.location.replace("/DashbordControler.php");</script>';
+            break;
+        case 'artist':
+          //  echo '<script>window.location.replace("/DashbordControler.php");</script>';
+            break;
+        default:
+           
+            break;
     }
+}
+
 }

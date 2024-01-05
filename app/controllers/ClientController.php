@@ -21,7 +21,7 @@ class ClientController extends Controller
   public function AddReclamation()
   {
     if (isset($_POST['submit'])) {
-      $lyrics_id = 1; // change to POST["lyrics_id"] (douaa zidi hadi mli t9adi la tache dyalk)
+      $lyrics_id = 1; // change to  $_POST["lyrics_id"] (douaa zidi hadi mli t9adi la tache dyalk)
       $typeReclamation = $_POST['typeReclamation'];
       $user_id = $_SESSION['id'];
       $this->reclamationDao->InsertReclamation($lyrics_id, $typeReclamation, $user_id);
