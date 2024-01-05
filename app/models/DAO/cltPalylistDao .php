@@ -1,23 +1,22 @@
 <?php 
-require_once(APPROOT . '/models/Palyliste.php');
-class PalylisteDao{
+require_once(APPROOT . '/models/cltPalylist.php');
+class PalylistDao{
     private $db;
-    private Palyliste $palyliste;
+    private Palyliste $palylist;
+
     public function __construct(){
         $this->db=new Database();
-        $this->palyliste=new Palyliste();
+        $this->palylist = new Palylist();
     }
-    //INSERT SESSION USER
+    
     public function getAll() {
         $req = "SELECT p.playliste_id id,p.username nom,p.image image,u.username  user FROM playliste p, users u
-        where p.user_id=u.user_id and p.user_id= :id";
+        where p.user_id=u.user_id";
         $this->db->query($req);
-        $id = $_SESSION['id'];
-        $this->db->bind(":id", $id);
         $res = $this->db->fetchAll();  
         $array = array();
         foreach ($res as $row) {
-            $playliste = new Palyliste();
+            $playliste = new Palylist();
             $playliste->setPlayliste_id($row->id);
             $playliste->setUsername($row->nom);
             $playliste->setImage($row->image);
@@ -26,16 +25,16 @@ class PalylisteDao{
         }
     
         return $array;
-    }
-    // DELETE FROM `playliste` WHERE playliste_id=// 
-    public function DelletPlayliste($id) {
+    } 
+
+    public function DelletPlaylist($id) {
         $req = "DELETE FROM `playliste` WHERE playliste_id= :id";
         $this->db->query($req);
         $this->db->bind(":id", $id);
         $this->db->execute();
     }
-    // nserti
-    public function InsertPlayliste($nameplaliste,$image,$iduser){
+
+    public function InsertPlaylist($nameplaliste, $image, $iduser){
         $req="INSERT INTO `playliste`(username,image,user_id) VALUES (:namePlayliste,:image,:idUser)";
         $this->db->query($req);
         $this->db->bind(":namePlayliste",$nameplaliste);

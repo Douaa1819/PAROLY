@@ -10,8 +10,13 @@ class AlbumDao{
     
         
     public function getAll() {
-        $req = "SELECT * ,a.id idA, g.id idG FROM album a, genre g WHERE a.genre_id = g.id";
+        $req = "SELECT *, a.id AS idA, g.id AS idG
+        FROM album a
+        JOIN genre g ON a.genre_id = g.id
+        WHERE a.user_id = :id;";
         $this->db->query($req);
+        $id = $_SESSION['id'];
+        $this->db->bind(':id',$id);
         $res = $this->db->fetchAll();  
         $array = array();
         foreach ($res as $row) {
@@ -50,9 +55,11 @@ class AlbumDao{
     }
  
  
-    public function InsertAlbum($name, $image, $genre_name) {
-        $req = "INSERT INTO album(name, image, genre_id) VALUES (:name, :image, :genre)";
+    public function InsertAlbum($name, $image, $genre_name,$id) {
+        $req = "INSERT INTO album(name, image, genre_id, user_id) VALUES (:name, :image, :genre, :id) ";
         $this->db->query($req);
+       
+        $this->db->bind(':id',$id);
         $this->db->bind(":name", $name);
         $this->db->bind(":image", $image); 
         $this->db->bind(":genre", $genre_name); 

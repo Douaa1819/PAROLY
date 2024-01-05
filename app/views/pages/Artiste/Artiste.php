@@ -1,6 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<?php require APPROOT . '/views/inc/SideBar.php'; ?>
-
+<?php require APPROOT . '/views/inc/SideBarArtist.php'; ?>
 
 <!--=========================Main====================-->
 <section>
@@ -46,24 +45,21 @@
             <div class="ml-4 grid grid-cols-4">
             <button type="button" id="myButton" class="relative">
         <div class="relative">
-            <div class="h-52 w-52 mt-4 p-12 rounded-xl bg-gray-300 cursor-pointer">
+            <div class="h-52 w-48 p-12 ml-6 rounded-xl bg-gray-300 cursor-pointer">
                 <img src="./assets/imgs/add.png" alt="Add" class="">
             </div>
         </div>
     </button>
-                <div>
-                    <img src="./assets/imgs/album1.jpg" alt="Artwork" class="h-64 w-64 p-4">
-                </div>
-                
-                <div>
-                    <img src="./assets/imgs/album2.jpg" alt="Artwork" class="h-64 w-64 p-4 ">
-                </div>
-                
-                
-                
-                
-                
-                
+    <?php
+                       foreach($data['Album'] as $album){ ?>
+                          <div>  
+                       <img class="h-64 w-64 p-4" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode( $album->getImage()); ?>"
+                                style=" border-radius: 40px;" />
+                       </div>
+                        <?php
+                        }
+                        ?>
+     
             </div>
 
 
@@ -130,5 +126,4 @@
     }
 </script>
 
-
-<?php require APPROOT . '/views/inc/footer.php'; ?>
+<?php include './assets/include/footer.php' ?>

@@ -74,7 +74,7 @@
         </form>
         <!-- here botton forget password -->
         <div class="mt-8 flex items-end justify-center ">
-            <button href="#" class="text-red-600 hover:underline cursor-pointer">Forgotten password?</button>
+            <a href="<?php echo URLROOT; ?>/UserController/pwdReset" class="text-red-600 hover:underline cursor-pointer">Forgotten password?</a>
         </div>
         <div class="text-center mt-7">
             <button id="showSignUpFormBtn" class="text-red-600 hover:underline cursor-pointer" class="text-red-600 hover:underline cursor-pointer">Don't have an account? Sign Up</button>

@@ -26,6 +26,40 @@ class UserDao {
             return false;
         }
     }
+    public function ResetPwd($email){
+        $token = bin2hex(random_bytes(16));
+        $token_hash = hash("sha256",$token);
+        $expiry = date("Y-m-d H:i:s",time() + 60 * 30);
+        try {
+            $this->db->query("UPDATE users SET reset_token_hash = :token,reset_token_expire_at = :expiry WHERE email = :email");
+            $this->db->bind(":token", $token_hash);
+            $this->db->bind(":expiry", $expiry);
+            $this->db->bind(":email", $email);
+            $this->db->execute();
+            return $token;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+
+    }
+    public function ReinsertPwd($pwd,$email){
+        try {
+            // Hash the password before storing it in the database
+            $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
+    
+            // Update the database with the hashed password
+            $this->db->query("UPDATE users SET password = :pwd WHERE email = :email");
+            $this->db->bind(":pwd", $hashedPwd);
+            $this->db->bind(":email", $email);
+            $this->db->execute();
+    
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
     public function findUserByEmail($email) {
         try {
             $this->db->query("SELECT * FROM users WHERE email = :email");
@@ -43,6 +77,23 @@ class UserDao {
             return false;
         }
     }
+    public function findUserByEmail1($email) {
+        try {
+            $this->db->query("SELECT * FROM users WHERE email = :email");
+            $this->db->bind(":email", $email);
+            $this->db->execute();
+           $result =  $this->db->fetchAll(PDO::FETCH_ASSOC);
+            
+            if (count($result) > 0) {
+                return $result;
+            }
+            
+            
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
     
     
 
@@ -53,21 +104,20 @@ class UserDao {
                 $this->db->bind(":email", $email);
                 $this->db->execute();
                 $userData = $this->db->fetchAll(PDO::FETCH_ASSOC);  
-              
+             
                 if (count($userData) > 0) {
                     $user = array();
-                
                     foreach ($userData as $data) {
-                        $dataArray = get_object_vars($data);
                         $user[] = new User(
-                            $dataArray['user_id'],
-                             $dataArray['username'],
-                            $dataArray['email'],
-                            $dataArray['password'],
-                            $dataArray['role'],
-                            $dataArray['image']
+                            $data->user_id,
+                            $data->username,
+                            $data->email,
+                            $data->password,
+                            $data->role,
+                            $data->image
                         );
                     }
+          
                 
                     return $user;
                 }
@@ -77,7 +127,12 @@ class UserDao {
             return false;
         }
     }
+
+    
+
+
     public function getUser(){
         return $this->user;
     }
+
 }
