@@ -70,7 +70,38 @@
       Feelin' like I've seen these signs
       Like somewhere in a past life
           </pre>
+              <!--=========================Modal====================-->
+
+    <div class="button-add-student float-end me-4">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            data-bs-whatever="@mdo">Report</button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Report</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="<?= URLROOT ?>/ClientController/AddReclamation"
+                            enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="typeReclamation" class="col-form-label">Why are you reporting those Lyrics?</label>
+                                <input type="text" class="form-control" name="typeReclamation" required>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="submit" name="submit" class="btn btn-primary">Submit Your Report</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+        </div>
+        
         <div class="other">
           <div class="reaction">
             <ion-icon name="thumbs-up-outline"></ion-icon>

@@ -1,5 +1,6 @@
 <?php
   class DashbordControler extends Controller {
+    
     private $GenreModel;
     private $AlbumModel;
     private $PlayListeModel;

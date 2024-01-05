@@ -10,7 +10,7 @@
     				</a>
     			</li>
     			<li>
-    				<a href="<?php echo URLROOT; ?>/DashbordControler">
+    				<a href="<?php echo URLROOT; ?>/ClientController">
     					<span class="icon"> <ion-icon name="home-outline"></ion-icon> </span>
     					<span class="title">Home</span>
     				</a>
