@@ -10,7 +10,7 @@ class SongDao{
     }
     
     public function getAll(){
-        $req="SELECT song.id ids,song.name nom, album.name album FROM song,album WHERE song.album_id=album.id";;
+        $req="SELECT song.id ids,song.name nom, album.name album FROM song,album WHERE song.album_id=album.id";
         $this->db->query($req);
         $res=$this->db->fetchALL();
         $array = array();
