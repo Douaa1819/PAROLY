@@ -4,7 +4,8 @@ class Song{
     private $idSong;
     private $nameSong;
     private $album_id;
-    private $album_name;
+    private $album_image;
+   
     public function __construct(){
         
     }
@@ -17,6 +18,11 @@ class Song{
     {
         return $this->idSong;
     }
+   
+    /**
+     * Set the value of idSong
+     *
+    **/
 
     /**
      * Set the value of idSong
@@ -73,9 +79,9 @@ class Song{
     /**
      * Get the value of album_name
      */ 
-    public function getAlbum_name()
+    public function getAlbum_image()
     {
-        return $this->album_name;
+        return $this->album_image;
     }
 
     /**
@@ -83,9 +89,9 @@ class Song{
      *
      * @return  self
      */ 
-    public function setAlbum_name($album_name)
+    public function setAlbum_image($album_image)
     {
-        $this->album_name = $album_name;
+        $this->album_image = $album_image;
 
         return $this;
     }

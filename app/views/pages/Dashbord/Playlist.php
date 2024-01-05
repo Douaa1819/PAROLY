@@ -39,13 +39,7 @@
                                 <label for="img" class="col-form-label">Image:</label>
                                 <input type="file" class="form-control" name="image">
                             </div>
-                            <div class="mb-3">
-                                <label for="user" class="col-form-label">User:</label>
-                                <select name="user" id="">
-                                    <option value="1">Anwar</option>
-                                    <option value="2">amine</option>
-                                </select>
-                            </div>
+                       
 
 
                             <div class="modal-footer">

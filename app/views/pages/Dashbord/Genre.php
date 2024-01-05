@@ -36,23 +36,23 @@
 								<input type="text" class="form-control" name="Genre" required>
 							</div>
 
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								<button type="submit" name="submit" class="btn btn-primary">Add Genre</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- ================ Order Details List ================= -->
-	<div class="details">
-		<div class="recentOrders">
-			<div class="cardHeader">
-				<h2>Genre</h2>
-				<!-- <a href="#" class="btn">View All</a> -->
-			</div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" name="submit" class="btn btn-primary">Add Genre</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ================ Order Details List ================= -->
+    <div class="lyrics">
+        <div class="recentOrders">
+            <div class="cardHeader">
+                <h2>Genre</h2>
+                <!-- <a href="#" class="btn">View All</a> -->
+            </div>
 
 			<table>
 				<thead>

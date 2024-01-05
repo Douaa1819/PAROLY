@@ -1,15 +1,27 @@
 <?php
+session_start();
+if(!isset($_SESSION['id'])){
+  header('Location: '.URLROOT.'/UserController');
+}
+
+ $phpMaillerGmail =  $_SESSION['email'];
+ $phpMaillerId = $_SESSION['id'];                 
   class DashbordControler extends Controller {
     
     private $GenreModel;
     private $AlbumModel;
     private $PlayListeModel;
+    private $LyricsModel;
     private $SongModel;
+    private $PHPMailer;
     public function __construct(){
       $this->GenreModel =$this->model('GenreDao');
       $this->AlbumModel =$this->model('AlbumDao');
       $this->PlayListeModel =$this->model('PalylisteDao');
+      $this->LyricsModel =$this->model('LyricsDao');
       $this->SongModel =$this->model('SongDao');
+      $this->PHPMailer=$this->model('PHPMailerDao');
+      
 
     }
     
@@ -40,61 +52,66 @@
         $this->view('pages/Dashbord/Album' ,$data);
       }
 
-    public function Artiste(){
-        $data = [
-          'title' => 'Artiste',
-        ];
-       
-        $this->view('pages/Dashbord/Artiste', $data);
-      }
-      public function Playliste(){
-        $data = [
-          'title' => 'Playliste',
-          'Playliste'=>$this->PlayListeModel->getAll(),
-        ];
-       
-        $this->view('pages/Dashbord/Playliste', $data);
-      }
-      public function song(){
-        $data = [
-          'title' => 'song',
-          'song'=>$this->SongModel->getAll(),
-          'Album'=>$this->AlbumModel->getFtechOption()
+  public function Artiste()
+  {
+    $data = [
+      'title' => 'Artiste',
+    ];
 
-        ];
-       
-        $this->view('pages/Dashbord/song', $data);
-      }
-      public function Lyrics(){
-        $data = [
-          'title' => 'Lyrics',
-        ];
-       
-        $this->view('pages/Dashbord/Lyrics', $data);
-      }
-      //------------------------- Genere---------------------------
-    //   Ajouter Genre
-      public function AddGenre(){
-        if(isset($_POST['submit'])){
-        $name=$_POST['Genre'];
-        // echo $name;
-       $this->GenreModel->InsertGenre($name);
-      header('Location: '.URLROOT.'/DashbordControler/Genre');
-    }
-    else{
-      header('Location: '.URLROOT.'/DashbordControler/Genre');
-    }
-      
-      }
-      public function DelletGenre(){
-            if(isset($_GET['id'])){
-              $id=$_GET['id'];
-              $this->GenreModel->DelletGenre( $id );
+    $this->view('pages/Dashbord/Artiste', $data);
+  }
+  public function Playlist()
+  {
+    $data = [
+      'title' => 'Playlist',
+      'Playliste' => $this->PlayListeModel->getAll(),
+    ];
 
-              header('Location: '.URLROOT.'/DashbordControler/Genre');
-            }
-            else{
-              header('Location: '.URLROOT.'/DashbordControler/Genre');
+    $this->view('pages/Dashbord/Playlist', $data);
+  }
+  public function song()
+  {
+    $data = [
+      'title' => 'song',
+      'song' => $this->SongModel->getAll(),
+      'Album' => $this->AlbumModel->getFtechOption()
+
+    ];
+
+    $this->view('pages/Dashbord/song', $data);
+  }
+  public function Lyrics()
+  {
+    $data = [
+      'title' => 'Lyrics',
+      'Lyrics' => $this->LyricsModel->getAll()
+    ];
+
+    $this->view('pages/Dashbord/Lyrics', $data);
+  }
+  //------------------------- Genere---------------------------
+  //   Ajouter Genre
+  public function AddGenre()
+  {
+    if (isset($_POST['submit'])) {
+      $name = $_POST['Genre'];
+      // echo $name;
+      $this->GenreModel->InsertGenre($name);
+      header('Location: ' . URLROOT . '/DashbordControler/Genre');
+    } else {
+      header('Location: ' . URLROOT . '/DashbordControler/Genre');
+    }
+
+  }
+  public function DelletGenre()
+  {
+    if (isset($_GET['id'])) {
+      $id = $_GET['id'];
+      $this->GenreModel->DelletGenre($id);
+
+      header('Location: ' . URLROOT . '/DashbordControler/Genre');
+    } else {
+      header('Location: ' . URLROOT . '/DashbordControler/Genre');
 
             }
       }
@@ -123,10 +140,10 @@
                         $user=$_POST['user'] ;
                         
                         $this->PlayListeModel->InsertPlayliste($namePlayliste,$image,$user);
-                        header('Location: '.URLROOT.'/DashbordControler/Playliste');
+                        header('Location: '.URLROOT.'/DashbordControler/Playlist');
                       }
                       else {
-                        header('Location: '.URLROOT.'/DashbordControler/Playliste');
+                        header('Location: '.URLROOT.'/DashbordControler/Playlist');
                       }
                    }
                     // Dellete playliste
@@ -135,38 +152,71 @@
                         $id=$_GET['id'];
                         $this->PlayListeModel->DelletPlayliste( $id );
           
-                        header('Location: '.URLROOT.'/DashbordControler/Playliste');
+                        header('Location: '.URLROOT.'/DashbordControler/Playlist');
                       }
                       else{
-                        header('Location: '.URLROOT.'/DashbordControler/Playliste');
+                        header('Location: '.URLROOT.'/DashbordControler/Playlist');
           
                       }
                     }
                        //-------------------------  fin Play liste ---------------------------
-                    // ------------------------------Add Song------------------------------------
-                    public function Addsong(){
-                      if(isset($_POST['AddSong'])){
-                        $Songname=$_POST['Songname'];
-                       $album=$_POST['AlbumSong'];
-                       $this->SongModel->InsertSong($Songname,$album);
-                       header('Location: '.URLROOT.'/DashbordControler/song');
-                      }
-                      else{
-                            header('Location: '.URLROOT.'/DashbordControler/song');
-                      }
-                    }
-                      public function DelletSong(){
-                        if(isset($_GET['id'])){
-                          $idsong=$_GET['id'];
-                          $this->SongModel->DeleteSong($idsong);
-                          header('Location: '.URLROOT.'/DashbordControler/song');
-                        }else {
-                          header('Location: '.URLROOT.'/DashbordControler/song');
 
-                        }
-                       
-                      }
-          
-    
+
+
+  // ------------------------------Add Song------------------------------------
+  public function Addsong()
+  {
+    if (isset($_POST['AddSong'])) {
+      $Songname = $_POST['Songname'];
+      $album = $_POST['AlbumSong'];
+      $this->SongModel->InsertSong($Songname, $album);
+      header('Location: ' . URLROOT . '/DashbordControler/song');
+    } else {
+      header('Location: ' . URLROOT . '/DashbordControler/song');
+    }
   }
- 
+  public function DelletSong()
+  {
+    if (isset($_GET['id'])) {
+      $idsong = $_GET['id'];
+      $this->SongModel->DeleteSong($idsong);
+      header('Location: ' . URLROOT . '/DashbordControler/song');
+    } else {
+      header('Location: ' . URLROOT . '/DashbordControler/song');
+
+    }
+
+  }
+  // ------------------------------fin  Song------------------------------------
+
+  // ------------------------------Debu  Lyrics------------------------------------
+
+  public function DeletLyrics()
+  {
+    if (isset($_GET['id'])) {
+      $idLyrics = $_GET['id'];
+      $this->LyricsModel->DeleteLyrics($idLyrics);
+      header('Location: ' . URLROOT . '/DashbordControler/Lyrics');
+    } else {
+      header('Location: ' . URLROOT . '/DashbordControler/Lyrics');
+
+    }
+
+  }
+  // -------------------------------------PHPMAILER-----------------
+  public function sendEmail() {
+    $to=$_POST['Email'];
+    $subject=" Accepte  ";
+    $body="félicitation on a  affiche  les  paroles pour music";
+   
+    $result = $this->PHPMailer->sendEmail($to, $subject,$body);
+
+    if ($result) {
+        echo 'Email sent successfully!';
+    } else {
+        echo 'Error sending email.';
+    }
+}
+
+
+}

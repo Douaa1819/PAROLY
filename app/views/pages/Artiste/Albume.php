@@ -1,5 +1,5 @@
-<?php  include './assets/include/header.php'  ?>
-
+<?php require APPROOT . '/views/inc/header.php'; ?>
+<?php require APPROOT . '/views/inc/SideBarArtist.php'; ?>
 <!--=========================Main====================-->
 <div class="main">
     <div class="topbar">
@@ -17,7 +17,7 @@
     <!--=========================Modal====================-->
 
     <div class="button-add-student float-end me-4">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        <button id="popup-btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
             data-bs-whatever="@mdo">Add Album</button>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -28,26 +28,33 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="./traitement/addcategory.php" enctype="multipart/form-data">
+                        <form method="POST" action="<?= URLROOT ?>/Artist/AddAlbum" enctype="multipart/form-data">
                             <div class="mb-3">
-                                <label for="img" class="col-form-label">Album:</label>
-                                <input type="text" class="form-control" name="cat">
+                                <label for="" class="col-form-label">Album:</label>
+                                <input type="text" class="form-control" name="name">
                             </div>
                             <div class="mb-3">
                                 <label for="img" class="col-form-label">Image:</label>
-                                <input type="file" class="form-control" name="cat">
+                                <input type="file" class="form-control" name="img">
                             </div>
                             <div class="mb-3">
                                 <label for="img" class="col-form-label">Genre:</label>
-                                <select name="" id="">
-                                    <option value=""></option>
-                                </select>
+                                <select name="Genre_name" id="">
+                                <option selected disabled> choose Genre of your Album</option>
+                                <?php 
+                                foreach($data['Genre'] as $genre){
+                                    ?>
+                                    <option value="<?php echo $genre->getId();?>"><?php echo $genre->getNom();?></option>    
+                                    <?php
+                                    }
+                                    ?> 
+                            </select>
                             </div>
 
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="submit" class="btn btn-primary">Add Album</button>
+                                <input type="submit" name="AddAlbum" class="btn btn-primary text-black" value="Add Album">
                             </div>
                         </form>
                     </div>
@@ -76,38 +83,25 @@
 
                 <tbody>
 
-                    <tr>
-                        <td>Addidas Shoes</td>
-                        <td>$620</td>
-                        <td>Due</td>
-                        <!-- <td><span class="status inProgress">In Progress</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
+                    
+                        <?php 
+                        foreach($data['Album'] as $album){ ?>
+                       <tr> <td><?php echo $album->getName();?></td>
+                       <td><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode( $album->getImage()); ?>"
+                                style="width: 80px; border-radius: 10px;" />
 
                         </td>
-                    </tr>
+                       
+                        <td><?php echo $album->getGenre_name();?></td>
+                       
+                     
+                       </tr>
+                        <?php
+                        }
+                        ?>
+                    
 
-                    <tr>
-                        <td>Star Refrigerator</td>
-                        <td>$1200</td>
-                        <td>Paid</td>
-                        <!-- <td><span class="status delivered">Delivered</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Dell Laptop</td>
-                        <td>$110</td>
-                        <td>Due</td>
-                        <!-- <td><span class="status pending">Pending</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-
-                        </td>
-                    </tr>
+                    
 
 
                 </tbody>
@@ -124,7 +118,7 @@
                 <tr>
                     <td width="60px">
                         <div class="imgBx">
-                            <img src="../../../public/img/customer02.jpg" alt="" />
+                            <img src="assets/imgs/customer02.jpg" alt="" />
                         </div>
                     </td>
                     <td>
@@ -138,7 +132,7 @@
                 <tr>
                     <td width="60px">
                         <div class="imgBx">
-                            <img src="../../../public/img/customer01.jpg" alt="" />
+                            <img src="assets/imgs/customer01.jpg" alt="" />
                         </div>
                     </td>
                     <td>
@@ -152,7 +146,7 @@
                 <tr>
                     <td width="60px">
                         <div class="imgBx">
-                            <img src="../../../public/img/customer02.jpg" alt="" />
+                            <img src="assets/imgs/customer02.jpg" alt="" />
                         </div>
                     </td>
                     <td>
@@ -166,7 +160,7 @@
                 <tr>
                     <td width="60px">
                         <div class="imgBx">
-                            <img src="../../../public/img/customer01.jpg" alt="" />
+                            <img src="assets/imgs/customer01.jpg" alt="" />
                         </div>
                     </td>
                     <td>
@@ -180,7 +174,7 @@
                 <tr>
                     <td width="60px">
                         <div class="imgBx">
-                            <img src="../../../public/img/customer02.jpg" alt="" />
+                            <img src="assets/imgs/customer02.jpg" alt="" />
                         </div>
                     </td>
                     <td>
@@ -194,7 +188,7 @@
                 <tr>
                     <td width="60px">
                         <div class="imgBx">
-                            <img src="../../../public/img/customer01.jpg" alt="" />
+                            <img src="assets/imgs/customer01.jpg" alt="" />
                         </div>
                     </td>
                     <td>
@@ -210,5 +204,3 @@
     </div>
 </div>
 </div>
-
-<?php include './assets/include/footer.php' ?>

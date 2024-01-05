@@ -3,19 +3,19 @@
 <?php require APPROOT . '/views/inc/footer.php'; ?>
 
 <body>
-  <div class="main">
-    <div class="topbar">
+    <div class="main">
+        <div class="topbar">
 
-      <div class="toggle">
-        <ion-icon name="menu-outline"></ion-icon>
-      </div>
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
 
-      <div class="search">
-        <label>
-          <input type="text" placeholder="Search here" />
-          <ion-icon name="search-outline" class="loop"></ion-icon>
-        </label>
-      </div>
+            <div class="search">
+                <label>
+                    <input type="text" placeholder="Search here" />
+                    <ion-icon name="search-outline" class="loop"></ion-icon>
+                </label>
+            </div>
 
       <ion-icon name="filter" class="fliter"></ion-icon>
       <div class="btns">
@@ -24,36 +24,36 @@
       </div>
     </div>
 
-    <!-- ======================= Cards ================== -->
-    <div class="cardBox">
-      <div class="card c1">
-        <div class="title">
-          <h1>Discover, Create, Share:</h1>
-          <p>Lyrically, Where Music Meets Your Words!</p>
-          <button>Explore </button>
+        <!-- ======================= Cards ================== -->
+        <div class="cardBox">
+            <div class="card c1">
+                <div class="title">
+                    <h1>Discover, Create, Share:</h1>
+                    <p>Lyrically, Where Music Meets Your Words!</p>
+                    <button>Explore </button>
+                </div>
+            </div>
+
+            <div class="card c2">
+                <div>
+                    <h2>About The Song </h2>
+                    <h3>Album:</h3>
+                    <p>God On The Weekend (Chapter & Verse Remix)</p>
+                    <h3>Artist:</h3>
+                    <p>Ian Asher</p>
+                    <h3>Verified Lyrics:</h3>
+                    <p>Someone</p>
+                </div>
+            </div>
+
         </div>
-      </div>
 
-      <div class="card c2">
-        <div>
-          <h2>About The Song </h2>
-          <h3>Album:</h3>
-          <p>God On The Weekend (Chapter & Verse Remix)</p>
-          <h3>Artist:</h3>
-          <p>Ian Asher</p>
-          <h3>Verified Lyrics:</h3>
-          <p>Someone</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ================ Order Details List ================= -->
-    <div class="details">
-      <div class="recentOrders">
-        <h2>Lyrics</h2>
-        <div class="lyrics">
-          <pre>
+        <!-- ================ Order Details List ================= -->
+        <div class="details">
+            <div class="recentOrders">
+                <h2>Lyrics</h2>
+                <div class="lyrics">
+                    <pre>
       When was the last time, did somethin' for the first time?
       Cause I need a good night to last for a lifetime
 
@@ -111,33 +111,33 @@
         </div>
       </div>
 
-      <!-- ================= New Customers ================ -->
-      <div class="recentCustomers">
-        <h2>Playing now</h2>
-        <div class="song">
-          <img src="./public/image/album1.png" alt="">
-          <div class="songinfo">
-            <div class="txt">
-              <h5>God On The Weekend</h5>
-              <p>Ian Asher</p>
-            </div>
-            <div class="icon">
-              <ion-icon name="pencil-sharp"></ion-icon>
-            </div>
-          </div>
-          <div class="play">
-            <div class="line"></div>
-            <div class="icons">
-              <ion-icon name="caret-back-sharp"></ion-icon>
-              <ion-icon name="pause-circle" class="pause"></ion-icon>
-              <ion-icon name="caret-forward-sharp"></ion-icon>
-            </div>
-          </div>
-        </div>
+            <!-- ================= New Customers ================ -->
+            <div class="recentCustomers">
+                <h2>Playing now</h2>
+                <div class="song">
+                    <img src="<?php echo URLROOT ?>/image/album1.png" alt="">
+                    <div class="songinfo">
+                        <div class="txt">
+                            <h5>God On The Weekend</h5>
+                            <p>Ian Asher</p>
+                        </div>
+                        <div class="icon">
+                            <ion-icon name="pencil-sharp"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="play">
+                        <div class="line"></div>
+                        <div class="icons">
+                            <ion-icon name="caret-back-sharp"></ion-icon>
+                            <ion-icon name="pause-circle" class="pause"></ion-icon>
+                            <ion-icon name="caret-forward-sharp"></ion-icon>
+                        </div>
+                    </div>
+                </div>
 
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
 </body>
 
 </html>
