@@ -4,8 +4,10 @@
 
 class UserController extends Controller {
     private $UserModel;
+    
     public function __construct(){
         $this->UserModel = $this->model('UserDao');
+        
     }
 
     public function index(){
@@ -52,7 +54,13 @@ class UserController extends Controller {
         }else{
             $result = $this->UserModel->findUserByEmail1($email);
             if($result && $result[0]->role !== 'admin'){
-                $this->UserModel->ResetPwd($email);
+                // $this->UserModel->ResetPwd($email);
+                // $mailer = new Send();
+                // $to = $email;
+                // $subject = "Password Reset";
+                // $body = "your one time password is: "+ $result[0]->reset_token_hash;
+                // $mailer->send($to,$subject,$body);
+
                 header('Location: '.URLROOT.'/UserController/verify');
                 exit();  
 
