@@ -1,33 +1,39 @@
 <?php
 
+session_start();
+unset($_SESSION['id']);
+unset($_SESSION['role']);
 
-
-class UserController extends Controller {
+class UserController extends Controller
+{
     private $UserModel;
-    public function __construct(){
+    public function __construct()
+    {
         $this->UserModel = $this->model('UserDao');
     }
 
-    public function index(){
+    public function index()
+    {
         $data = [
             'title' => 'Register',
         ];
 
         $this->view('pages/Registration/register', $data);
-       $this->signup2();
-       $this->login2();
+        $this->signup2();
+        $this->login2();
     }
-  
-    
-    public function signup2(){
-      
+
+
+    public function signup2()
+    {
+
         if (isset($_POST["signup"])) {
             $fullName = $_POST["name"];
             $email = $_POST["email"];
             $role = $_POST["role"];
             $password = $_POST["password"];
             $repeat_password = $_POST["repeat-password"];
-       
+
             $password_hash = password_hash($repeat_password, PASSWORD_DEFAULT);
             $errors = array();
             $patternEmail = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
@@ -53,16 +59,13 @@ class UserController extends Controller {
             if (count($errors) > 0) {
                 foreach ($errors as $error) {
                     echo '<div class="bg-red-500 rounded-xl text-white p-2 my-2">' . $error . '</div>';
-               
                 }
-                
-         
             } else {
-    
+
                 $result = $this->UserModel->signup($fullName, $email, $password_hash, $role);
-        
+
                 // Handle the result
-                   
+
 
                 if ($result) {
                     // Registration successful, you can redirect or display a success message
@@ -76,65 +79,72 @@ class UserController extends Controller {
 
         $this->view('pages/registration/register');
     }
-public function login2(){
-    if (isset($_POST["login"])) {
-        $email = $_POST["email"];
-        $password = $_POST["password"];
+    public function login2()
+    {
+        if (isset($_POST["login"])) {
+            $email = $_POST["email"];
+            $password = $_POST["password"];
 
-        $patternEmail = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'; 
-        $patternPassword = '/^.{4,}$/';
-        $errors = array();
+            $patternEmail = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+            $patternPassword = '/^.{4,}$/';
+            $errors = array();
 
-        if (!preg_match($patternEmail, $email)) {
-            array_push($errors, "Email is not valid.");
-        }
-
-        if (!preg_match($patternPassword, $password)) {
-            array_push($errors, "Please use at least 4 characters");
-        }
-
-        if (count($errors) > 0) {
-            foreach ($errors as $error) {
-                echo '<div class="bg-red-500 rounded-xl text-white p-2 my-2">' . $error . '</div>';
+            if (!preg_match($patternEmail, $email)) {
+                array_push($errors, "Email is not valid.");
             }
-        } else {
-            // Assuming $user_DAO is an instance of the UserDAO class
-            $Result = $this->UserModel->login($email);
 
-            if ($Result &&  count($Result) > 0) {
-                $user = $Result[0];
-                $enteredPass = $user->getPassword();
-                $role = $user->getRole();
-                if ($user && password_verify($password, $enteredPass)) {
-                    $this->redirectBasedOnRole($role);
-                } else {
-                    echo '<div class="bg-red-500 rounded-xl text-white p-2 my-2">Password incorrect</div>';
+            if (!preg_match($patternPassword, $password)) {
+                array_push($errors, "Please use at least 4 characters");
+            }
+
+            if (count($errors) > 0) {
+                foreach ($errors as $error) {
+                    echo '<div class="bg-red-500 rounded-xl text-white p-2 my-2">' . $error . '</div>';
                 }
             } else {
-                echo '<div class="bg-red-500 rounded-xl text-white p-2 my-2">User not found</div>';
+                // Assuming $user_DAO is an instance of the UserDAO class
+                $Result = $this->UserModel->login($email);
+
+                if ($Result &&  count($Result) > 0) {
+                    $user = $Result[0];
+                    $enteredPass = $user->getPassword();
+                    $role = $user->getRole();
+                    $_SESSION['role'] = $role ;
+                    $_SESSION['email'] =  $email;
+                    $_SESSION['id'] = $user->getUser_id();                  
+                    if ($user && password_verify($password, $enteredPass)) {
+                        $this->redirectBasedOnRole($role);
+                    } else {
+                        echo '<div class="bg-red-500 rounded-xl text-white p-2 my-2">Password incorrect</div>';
+                    }
+                } else {
+                    echo '<div class="bg-red-500 rounded-xl text-white p-2 my-2">User not found</div>';
+                }
             }
         }
+
+        $this->view('pages/Registration/register');
     }
 
-    $this->view('pages/Registration/register');
-}
+    private function redirectBasedOnRole($role)
+    {
 
-private function redirectBasedOnRole($role) {
-    switch ($role) {
-        case 'admin':
-            //  header('Location: ' . URLROOT.'/DashbordControler');
-            echo '<script>window.location.replace(" '.URLROOT.'/DashbordControler");</script>';
-            break;
-        case 'client':
-          //  echo '<script>window.location.replace("/DashbordControler.php");</script>';
-            break;
-        case 'artist':
-          //  echo '<script>window.location.replace("/DashbordControler.php");</script>';
-            break;
-        default:
-           
-            break;
+        switch ($role) {
+            case 'admin':
+                $_SESSION['id'];
+             echo '<script>window.location.replace(" ' . URLROOT . '/DashbordControler");</script>';
+                break;
+            case 'client':
+                $_SESSION['id'];
+                echo '<script>window.location.replace(" ' . URLROOT . '/ClientController");</script>';
+                break;
+            case 'artist':
+                $_SESSION['id'];
+                echo '<script>window.location.replace(" ' . URLROOT . '/Artist");</script>';
+                break;
+            default:
+
+                break;
+        }
     }
-}
-
 }
