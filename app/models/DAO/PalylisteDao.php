@@ -9,7 +9,7 @@ class PalylisteDao{
     }
     public function getAll() {
         $req = "SELECT p.playliste_id id,p.username nom,p.image image,u.username  user FROM playliste p, users u
-        where p.user_id=u.user_id";
+        where p.user_id=u.user_id AND ";
         $this->db->query($req);
         $res = $this->db->fetchAll();  
         $array = array();

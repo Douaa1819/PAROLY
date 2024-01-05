@@ -29,22 +29,33 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="" enctype="multipart/form-data">
+                        <form method="POST" action="<?= URLROOT ?>/Artist/AddMusic" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="Songname" class="col-form-label">Song:</label>
-                                <input type="text" class="form-control" name="Songname">
+                                <input type="text" class="form-control" name="name">
                             </div>
+                            <!-- <div class="mb-3">
+                                <label for="Song" class="col-form-label">Your Music</label>
+                                <input type="file" class="form-control" name="music">
+                            </div> -->
                             <div class="mb-3">
                                 <label for="AlbumSong" class="col-form-label">Album:</label>
-                                <select name="AlbumSong" id="">
-                                    <option value=""></option>
-                                </select>
+                                <select name="album" id="">
+                                <option selected disabled> choose your Album</option>
+                                <?php 
+                                foreach($data['Album'] as $album){
+                                    ?>
+                                    <option value="<?php echo $album->getId();?>"><?php echo $album->getName();?></option>    
+                                    <?php
+                                    }
+                                    ?> 
+                            </select>
                             </div>
 
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary text-black" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="submit" class="btn btn-primary text-black">Add Song</button>
+                                <input type="submit" name="AddMusic" class="btn btn-primary text-black"value="Add Song">
                             </div>
                         </form>
                     </div>
@@ -69,7 +80,7 @@
                         <form method="POST" action="./traitement/addcategory.php" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="Songname" class="col-form-label">Song:</label>
-                                <input type="text" class="form-control" name="Songname">
+                                <input type="text" class="form-control" name="name">
                             </div>
                             <div class="mb-3">
                                 <label for="AlbumSong" class="col-form-label">lyrics:</label>
@@ -100,72 +111,27 @@
 
             <table>
                 <thead>
-                    <tr>
+                    <tr class="flex justify-between">
                         <td>Name</td>
                         <td>Album</td>
-                        <td>Action</td>
+                        <td>Music</td>
                     </tr>
                 </thead>
 
                 <tbody >
-
-                    <tr>
-                        <td>Whispers in the Twilight</td>
-                        <td><img src="./assets/imgs/album1.jpg" alt="" class="w-32"></td>
-                        <!-- <td><span class="status inProgress">In Progress</span></td> -->
-
-                        <td> <a type="button"><i class=" btn btn-primary far fa-pen"></i></a>
-
-                            <a type="button"><i class="btn btn-danger far fa-trash"></i></a>
-                            <a type="button" data-bs-toggle="modal" data-bs-target="#lyricsSongModal"
-                                data-bs-whatever="@mdo">
-                                <ion-icon class="btn btn-primary" name="add-circle-outline"></ion-icon>
-                            </a>
-
-                        </td>
+                        <?php      
+                        foreach($data['song'] as $song){                  
+                        ?>
+                    <tr class="flex justify-between">
+                    
+                        <td><p><?php echo $song->getNameSong(); ?></p></td>                       
+                    <td><img  src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($song->getAlbum_image() ); ?>"
+                                style=" width: 120px; border-radius: 10px;" /></td>                      
+                      <td>dd</td>
                     </tr>
-
-                    <tr>
-                        <td>Echoes of a Dream Deferred</td>
-                        <td><img src="./assets/imgs/album1.jpg" alt="" class="w-32"></td>
-                        <!-- <td><span class="status pending">Pending</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-                            <a type="button" data-bs-toggle="modal" data-bs-target="#lyricsSongModal"
-                                data-bs-whatever="@mdo">
-                                <ion-icon class="btn btn-primary" name="add-circle-outline"></ion-icon>
-                            </a>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Echoes of a Dream Deferred</td>
-                        <td><img src="./assets/imgs/album1.jpg" alt="" class="w-32"></td>
-                        <!-- <td><span class="status pending">Pending</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-                            <a type="button" data-bs-toggle="modal" data-bs-target="#lyricsSongModal"
-                                data-bs-whatever="@mdo">
-                                <ion-icon class="btn btn-primary" name="add-circle-outline"></ion-icon>
-                            </a>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Echoes of a Dream Deferred</td>
-                        <td><img src="./assets/imgs/album1.jpg" alt="" class="w-32"></td>
-                        <!-- <td><span class="status pending">Pending</span></td> -->
-                        <td> <a href=""><i class=" btn btn-primary far fa-pen"></i></a>
-                            <a href=" "><i class="btn btn-danger far fa-trash"></i></a>
-                            <a type="button" data-bs-toggle="modal" data-bs-target="#lyricsSongModal"
-                                data-bs-whatever="@mdo">
-                                <ion-icon class="btn btn-primary" name="add-circle-outline"></ion-icon>
-                            </a>
-
-                        </td>
-                    </tr>
-
-
+                        <?php
+                        }
+                        ?>
                 </tbody>
             </table>
         </div>

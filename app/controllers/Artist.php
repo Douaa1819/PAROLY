@@ -1,4 +1,14 @@
 <?php
+session_start();
+if(!isset($_SESSION['id'])){
+  header('Location: '.URLROOT.'/UserController');
+}
+if($_SESSION['role'] != 'artist' && $_SESSION['role'] = 'client' ){
+  header('Location: '.URLROOT.'/ClientController');
+}
+if($_SESSION['role'] != 'artist' && $_SESSION['role'] = 'admin' ){
+  header('Location: '.URLROOT.'/DashbordControler');
+}
 class Artist extends Controller {
   
     private $AlbumModel;
@@ -15,6 +25,8 @@ class Artist extends Controller {
     public function index(){
         $data = [
           'title' => 'Artist',
+          'Album'=>$this->AlbumModel->getAll(),
+            'Genre'=>$this->GenreModel->getAll()
         ];
        
         $this->view('pages/Artiste/Dashboord', $data);
@@ -28,13 +40,16 @@ class Artist extends Controller {
             'Album'=>$this->AlbumModel->getAll(),
             'Genre'=>$this->GenreModel->getAll()
           ];
-          $this->view('pages/Artiste/Album' ,$data);
+          $this->view('pages/Artiste/Albume' ,$data);
           
         }
   
       public function Artiste(){
           $data = [
             'title' => 'Artiste',
+            'Album'=>$this->AlbumModel->getAll(),
+            'Genre'=>$this->GenreModel->getAll()
+
           ];
          
           $this->view('pages/Artiste/Artiste', $data);
@@ -45,30 +60,42 @@ class Artist extends Controller {
           $data = [
             'title' => 'song',
             'song'=>$this->SongModel->getAll(),
-            'Album'=>$this->AlbumModel->getFtechOption()
-  
+            'Album'=>$this->AlbumModel->getAll()
+           
           ];
          
           $this->view('pages/Artiste/song', $data);
         }
-        public function AddArtiste(){
+        public function AddAlbum(){
           if(isset($_POST['AddAlbum'])){
           $album = $_POST['name'];
           $tmp_name = $_FILES['img']['tmp_name'];
           $image = file_get_contents($tmp_name);
           $genre = $_POST['Genre_name'];
-          echo $album;
-          echo $genre;
-      $res=  $this->AlbumModel->InsertAlbum($album, $image, $genre);
-        if($res){
-          echo 'hamid';
-        }else echo 'nohamid';
+          
+       $this->AlbumModel->InsertAlbum($album, $image, $genre);
+       
          header('Location: '.URLROOT.'/Artist/Album');
       }
       else{
         header('Location: '.URLROOT.'/Artist/Album');
       }
         
+        }
+
+        public function AddMusic(){
+          if(isset($_POST['AddMusic'])){
+            $name = $_POST['name'];
+            $album = $_POST['album'];
+            $id = $_SESSION['id'];
+            
+             $this->SongModel->InsertSong($name,$album ,$id);
+          
+             header('Location: '.URLROOT.'/Artist/Song');
+          
+          } else{
+            header('Location: '.URLROOT.'/Artist/Song');
+          }
         }
       
 }

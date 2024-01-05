@@ -1,7 +1,16 @@
 <?php
 session_start();
-$phpMaillerGmail =  $_SESSION['email'];
-$phpMaillerId = $_SESSION['id'];
+if(!isset($_SESSION['id'])){
+  header('Location: '.URLROOT.'/UserController');
+}
+if($_SESSION['role'] != 'admin' && $_SESSION['role'] = 'artist' ){
+  header('Location: '.URLROOT.'/artist');
+}
+if($_SESSION['role'] != 'admin' && $_SESSION['role'] = 'client' ){
+  header('Location: '.URLROOT.'/ClientController');
+}
+echo $phpMaillerGmail =  $_SESSION['email'];
+echo $phpMaillerId = $_SESSION['id'];
   class DashbordControler extends Controller {
     private $GenreModel;
     private $AlbumModel;

@@ -85,62 +85,28 @@
                     <tr>
                         <td>Name</td>
                         <td>Album</td>
+                        <td>status</td>
                         
-                        <td>Status</td>
+                       
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>Star Refrigerator</td>
-                        <td><img src="./assets/imgs/album1.jpg" class="w-32 h-32"> </td>
-                        
-                        <td><span class="status delivered">public</span></td>
-                    </tr>
-
+                    
+                <?php 
+                        foreach($data['Album'] as $album){ ?>
+                            <td>namemusic</td>
+                       <td><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode( $album->getImage()); ?>"
+                                style="width: 80px; border-radius: 10px;" />
+                        </td> 
+                        <td>status</td>                                         
+                       </tr>
+                        <?php
+                        }
+                        ?>
                    
 
-                    <tr>
-                        <td>Apple Watch</td>
-                        <td><img src="./assets/imgs/album1.jpg" class="w-32 h-32"> </td>
-                       
-                        <td><span class="status return">private</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>Addidas Shoes</td>
-                        <td>$620</td>
-                        
-                        <td><span class="status inProgress">In Progress</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>Star Refrigerator</td>
-                        <td><img src="./assets/imgs/album1.jpg" class="w-32 h-32"> </td>
-                        
-                        <td><span class="status delivered">Delivered</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>Dell Laptop</td>
-                        <td>$110</td>
-                        
-                        <td><span class="status pending">Pending</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>Apple Watch</td>
-                        <td><img src="./assets/imgs/album1.jpg" class="w-32 h-32"> </td>
-                      
-                        <td><span class="status return">Return</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>Addidas Shoes</td>
-                        <td>$620</td>
-                       
-                        <td><span class="status inProgress">In Progress</span></td>
-                    </tr>
+                   
                 </tbody>
             </table>
         </div>

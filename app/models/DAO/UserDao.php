@@ -53,20 +53,20 @@ class UserDao {
                 $this->db->bind(":email", $email);
                 $this->db->execute();
                 $userData = $this->db->fetchAll(PDO::FETCH_ASSOC);  
-              
+             
                 if (count($userData) > 0) {
                     $user = array();
-                
                     foreach ($userData as $data) {
-                        $dataArray = get_object_vars($data);
                         $user[] = new User(
-                            $dataArray['user_id'],
-                            $dataArray['email'],
-                            $dataArray['password'],
-                            $dataArray['role'],
-                            $dataArray['image']
+                            $data->user_id,
+                            $data->username,
+                            $data->email,
+                            $data->password,
+                            $data->role,
+                            $data->image
                         );
                     }
+          
                 
                     return $user;
                 }
