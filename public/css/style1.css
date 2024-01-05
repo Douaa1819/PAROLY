@@ -298,7 +298,87 @@ body {
 .cardBox .c2 p{
   color: var(--white);
 }
+.musicBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 30px;
+}
 
+.musicBox .card {
+  position: relative;
+  background: var(--white);
+  padding: 10px 10px 0px 10px ;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.musicBox .card .img{
+  width: 100%;
+}
+.musicBox .card .img img {
+  width: 100%;
+}
+
+.musicBox .card:hover {
+  background: rgb(97, 97, 97);
+}
+.musicBox .card:hover .numbers,
+.musicBox .card:hover .cardName,
+.musicBox .card:hover .iconBx {
+  color: var(--white);
+}
+
+
+
+.playlistBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+}
+.playlistBox .box1 , .playlistBox .box2{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.playlistBox .card {
+  position: relative;
+  background: var(--white);
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.playlistBox .card .img{
+  width: 15%;
+}
+.playlistBox .card .img img {
+  width: 100%;
+
+}
+
+.playlistBox .card:hover {
+  background: rgba(97, 97, 97, 0.55);
+}
+.playlistBox .card:hover .numbers,
+.playlistBox .card:hover .cardName,
+.playlistBox .card:hover .iconBx {
+  color: var(--white);
+}
 /* ================== Order Details List ============== */
 .details {
   position: relative;
@@ -317,7 +397,6 @@ body {
   gap: 3rem;
   background: var(--black2);
   padding: 20px;
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
 }
 
@@ -374,7 +453,6 @@ body {
   min-height: 500px;
   padding: 20px;
   background: var(--black2);
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
 }
 .recentCustomers h2{
