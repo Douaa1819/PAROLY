@@ -8,10 +8,10 @@
 
 ## Membre d'équipe
 [Scrum Master](https://github.com/Douaa1819)
-[Youssef Hihi](https://github.com/youssefhihi)
-[Aya ALghayour](https://github.com/AyaElrhayour)
-[Amine Chaguer](https://github.com/chaguer12)
-[Anouar Bouchahboune](https://github.com/anouar-devlopeur)
+-[Youssef Hihi](https://github.com/youssefhihi)
+-[Aya ALghayour](https://github.com/AyaElrhayour)
+-[Amine Chaguer](https://github.com/chaguer12)
+-[Anouar Bouchahboune](https://github.com/anouar-devlopeur)
 
 
 
