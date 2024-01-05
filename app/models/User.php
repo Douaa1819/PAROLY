@@ -11,13 +11,21 @@ class User {
     private $role;
     private $img;
 
-    public function __construct($email = null , $password = null , $role = null , $img = null,$user_id=null,$username=null) {
+    public function __construct($user_id = null ,$username=null, $email = null , $password = null , $role = null , $img = null) {
+        $this->user_id = $user_id;
+        $this->username = $username;
         $this->email = $email;
         $this->password = $password;
         $this->role = $role;
         $this->img = $img;
-        $this->user_id=$user_id;
-        $this->username=$username;
+        
+    }
+    /**
+     * Get the value of user_id
+     */ 
+    public function getUser_id()
+    {
+        return $this->user_id;
     }
 
     public function getEmail() {
@@ -84,13 +92,7 @@ class User {
         return $this;
     }
 
-    /**
-     * Get the value of user_id
-     */ 
-    public function getUser_id()
-    {
-        return $this->user_id;
-    }
+    
 
     /**
      * Set the value of user_id
