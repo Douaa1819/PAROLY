@@ -1,6 +1,12 @@
 <?php require APPROOT . '/views/inc/Clientheader.php'; ?>
 <?php require APPROOT . '/views/inc/ClientSideBar.php'; ?>
 <?php require APPROOT . '/views/inc/footer.php'; ?>
+<?php 
+$user_id=1;
+$id_Song=2;
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,7 +130,7 @@
             </div>
             <!-- Modal body -->
             <div class="p-4 md:p-5">
-          <form id="lyrics-form" action="<?php echo APPROOT . '/controllers/LyricsController/addLyrics'; ?>" method="post">
+          <form id="lyrics-form" action="<?php echo URLROOT . '/LyricsController/addLyrics'; ?>" method="post">
         <textarea name="name_lyrics" placeholder="Ajouter parol..." class=" text-black"></textarea>
         <input type="hidden" name="id_song" value="<?php echo $id_Song; ?>">
         <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
@@ -162,7 +168,6 @@
   </div>
   <script>
  document.addEventListener('DOMContentLoaded', function() {
-    // ...
 
     var modalButton = document.querySelector('[data-modal-toggle="authentication-modal"]');
     var modal = document.getElementById('authentication-modal');
@@ -172,30 +177,6 @@
         toggleModal();
     });
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        fetch(form.action, {
-            method: form.method,
-            body: new FormData(form),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-
-            if (data.success) {
-                var lyricsDiv = document.querySelector('.lyrics');
-                var newLyrics = document.querySelector('textarea[name="parol"]').value;
-
-                lyricsDiv.textContent = newLyrics;
-
-                toggleModal(); // Fermez le modal si l'ajout réussit
-            }
-        })
-        .catch(error => {
-            console.error('Erreur lors de l\'envoi du formulaire:', error);
-        });
-    });
 
     // fonction pour gérer l'ouverture/fermeture du modal
     function toggleModal() {

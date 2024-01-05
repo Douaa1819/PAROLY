@@ -15,21 +15,13 @@ class LyricsController {
             $user_id = $_POST['user_id'];
             $id_Song = $_POST['id_song'];
 
-            $success = $this->model->addLyrics($name_lyrics, $user_id,  $id_Song);
+            $this->model->addLyrics($name_lyrics, $user_id,  $id_Song);
 
-            if ($success) {
-                echo "succes";
-            } else {
-                echo "false";
-            }
-            exit;
         }
     }
 
 
-    //3endak tnsay  l'ajout colomn like et dislik on tabl ALTER TABLE lyrics
-//ADD COLUMN likes INT DEFAULT 0,
-//ADD COLUMN dislikes INT DEFAULT 0;
+
 
 public function likeLyrics($lyricsId) {
     $success = $this->model->addLike($lyricsId);

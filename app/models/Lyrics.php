@@ -8,12 +8,12 @@ class LyricsModel {
     }
 
     public function addLyrics($name_lyrics, $user_id, $id_Song) {
-        $sql = "INSERT INTO lyrics (name_lyrics, user_id, status, id_Song) VALUES (:name_lyrics,:user_id,:id_Song)";
+        $sql = "INSERT INTO lyrics (name_lyrics, user_id, status,date, id_Song) VALUES (:name_lyrics, :user_id, '0',Now(),:id_Song)";
         $this->db->query($sql);
         $this->db->bind(':name_lyrics', $name_lyrics);
         $this->db->bind(':user_id', $user_id);
         $this->db->bind(':id_Song', $id_Song);
-        return $this->db->execute();
+        $this->db->execute();
     }
 
     
