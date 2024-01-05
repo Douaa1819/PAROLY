@@ -54,6 +54,7 @@
           <div class="img"><img src="<?php echo URLROOT ?>/image/album1.png" alt=""></div>
           <div class="txt">
             <h6>God On The Weekend</h6>
+            
           </div>
         </div>
       </div>
@@ -70,11 +71,15 @@
     <div class="musicBox">
       <div class="card">
         <div class="img"><img src="<?php echo URLROOT ?>/image/album1.png" alt=""></div>
-        <div class="txt">
-          <h6>God On The Weekend</h6>
-          <p>Ian Asher</p>
-          <!-- youssef hadi dir ghir smiya dyal l album -->
-        </div>
+        <div class="songinfo">
+            <div class="txt">
+              <h5>God On The Weekend</h5>
+              <p>Ian Asher</p>
+            </div>
+            <div class="icon">
+              <ion-icon name="pencil-sharp"></ion-icon>
+            </div>
+          </div>
       </div>
     </div>
     <!-- ================ Order Details List ================= -->

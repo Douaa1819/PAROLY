@@ -319,6 +319,11 @@ body {
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
 
+.musicBox .card .songinfo{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
 .musicBox .card .img{
   width: 100%;
 }
