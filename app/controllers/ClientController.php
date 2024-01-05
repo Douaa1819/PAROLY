@@ -10,6 +10,20 @@
      
       $this->view('pages/client/clienthome', $data);
     }
+    public function account(){
+      $data = [
+        'title' => 'account',
+      ];
+    
+      $this->view('pages/client/clienthome', $data);
+    }
+    public function playlist(){
+      $data = [
+        'title' => 'playlist',
+      ];
+     
+      $this->view('pages/client/clienthome', $data);
+    }
     
 
   
