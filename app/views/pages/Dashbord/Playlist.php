@@ -76,7 +76,7 @@
                     <tr>
                         <td><?= $Playliste->getPlayliste_id()?></td>
                         <td><?= $Playliste->getUsername()?></td>
-                        <td><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode( $Playliste->getImage()); ?>"
+                        <td><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($Playliste->getImage()); ?>"
                                 style="width: 50px; border-radius: 10px;" />
 
                         </td>

@@ -10,9 +10,11 @@ class PalylisteDao{
     //INSERT SESSION USER
     public function getAll() {
         $req = "SELECT p.playliste_id id,p.username nom,p.image image,u.username  user FROM playliste p, users u
-        where p.user_id=u.user_id and p.user_id=1";
+        where p.user_id=u.user_id and p.user_id= :id";
         $this->db->query($req);
-        $res = $this->db->fetchAll();  
+        $id = $_SESSION['id'];
+        $this->db->bind(":id", $id);
+        $res = $this->db->fetchAll();
         $array = array();
         foreach ($res as $row) {
             $playliste = new Palyliste();
@@ -22,7 +24,7 @@ class PalylisteDao{
             $playliste->setUser_name($row->user);
             array_push($array,$playliste);
         }
-    
+
         return $array;
     }
     // DELETE FROM `playliste` WHERE playliste_id=// 
