@@ -7,6 +7,7 @@ if(!isset($_SESSION['id'])){
  $phpMaillerGmail =  $_SESSION['email'];
  $phpMaillerId = $_SESSION['id'];                 
   class DashbordControler extends Controller {
+    
     private $GenreModel;
     private $AlbumModel;
     private $PlayListeModel;
