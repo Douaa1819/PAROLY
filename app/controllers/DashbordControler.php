@@ -7,6 +7,7 @@ class DashbordControler extends Controller
   private $LyricsModel;
   private $SongModel;
   private $PHPMailer;
+  private $reclamationDao;
   public function __construct()
   {
     $this->GenreModel = $this->model('GenreDao');
@@ -15,7 +16,7 @@ class DashbordControler extends Controller
     $this->LyricsModel = $this->model('LyricsDao');
     $this->SongModel = $this->model('SongDao');
     $this->PHPMailer=$this->model('PHPMailerDao');
-
+    $this->reclamationDao = $this->model("ReclamationDao");
 
   }
 
@@ -44,8 +45,10 @@ class DashbordControler extends Controller
     $data = [
       'title' => 'Album',
       'Album' => $this->AlbumModel->getAll(),
-      'Genre' => $this->GenreModel->getAll()
+      'Genre' => $this->GenreModel->getAll(),
+      'reclame'=>$this->reclamationDao->getAllreclam()
     ];
+ 
     $this->view('pages/Dashbord/Album', $data);
   }
 
@@ -86,6 +89,7 @@ class DashbordControler extends Controller
 
     $this->view('pages/Dashbord/Lyrics', $data);
   }
+
   //------------------------- Genere---------------------------
   //   Ajouter Genre
   public function AddGenre()

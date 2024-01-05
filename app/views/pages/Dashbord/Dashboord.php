@@ -20,6 +20,11 @@
                     aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
+                <!-- <?php foreach ($data['reclame'] as $value) { ?>
+                <p>
+                    <?= $value->getId(); ?>
+                </p>
+                <?php } ?> -->
 
             </div>
         </div>

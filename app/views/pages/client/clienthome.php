@@ -16,29 +16,11 @@
                     <ion-icon name="search-outline" class="loop"></ion-icon>
                 </label>
             </div>
-
-<<<<<<< HEAD
             <ion-icon name="filter" class="fliter"></ion-icon>
             <div class="btns">
                 <button class="sign-up">Sign Up</button>
                 <button class="log-in">Log In</button>
             </div>
-=======
-      <ion-icon name="filter" class="fliter"></ion-icon>
-      <div class="btns">
-        <button class="sign-up">Sign Up</button>
-        <button class="log-in">Log In</button>
-      </div>
-    </div>
-
-    <!-- ======================= Cards ================== -->
-    <div class="cardBox">
-      <div class="card c1">
-        <div class="title">
-          <h1>Discover, Create, Share:</h1>
-          <p>Lyrically, Where Music Meets Your Words!</p>
-          <button>Explore </button>
->>>>>>> bb0f2fe8bf492357b4c517ddddec65695fcde4a8
         </div>
 
         <!-- ======================= Cards ================== -->
@@ -49,28 +31,37 @@
                     <p>Lyrically, Where Music Meets Your Words!</p>
                     <button>Explore </button>
                 </div>
-            </div>
 
-            <div class="card c2">
-                <div>
-                    <h2>About The Song </h2>
-                    <h3>Album:</h3>
-                    <p>God On The Weekend (Chapter & Verse Remix)</p>
-                    <h3>Artist:</h3>
-                    <p>Ian Asher</p>
-                    <h3>Verified Lyrics:</h3>
-                    <p>Someone</p>
+                <!-- ======================= Cards ================== -->
+                <div class="cardBox">
+                    <div class="card c1">
+                        <div class="title">
+                            <h1>Discover, Create, Share:</h1>
+                            <p>Lyrically, Where Music Meets Your Words!</p>
+                            <button>Explore </button>
+                        </div>
+                    </div>
+
+                    <div class="card c2">
+                        <div>
+                            <h2>About The Song </h2>
+                            <h3>Album:</h3>
+                            <p>God On The Weekend (Chapter & Verse Remix)</p>
+                            <h3>Artist:</h3>
+                            <p>Ian Asher</p>
+                            <h3>Verified Lyrics:</h3>
+                            <p>Someone</p>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
 
-        </div>
-
-        <!-- ================ Order Details List ================= -->
-        <div class="details">
-            <div class="recentOrders">
-                <h2>Lyrics</h2>
-                <div class="lyrics">
-                    <pre>
+                <!-- ================ Order Details List ================= -->
+                <div class="details">
+                    <div class="recentOrders">
+                        <h2>Lyrics</h2>
+                        <div class="lyrics">
+                            <pre>
       When was the last time, did somethin' for the first time?
       Cause I need a good night to last for a lifetime
 
@@ -87,7 +78,16 @@
       Feelin' like I've seen these signs
       Like somewhere in a past life
           </pre>
-<<<<<<< HEAD
+                        </div>
+                        <div class="other">
+                            <div class="reaction">
+                                <ion-icon name="thumbs-up-outline"></ion-icon>
+                                <ion-icon name="thumbs-down-outline"></ion-icon>
+                            </div>
+                            <button>Other Lyrics</button>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="other">
                     <div class="reaction">
@@ -97,47 +97,12 @@
                     <button>Other Lyrics</button>
                 </div>
             </div>
-=======
-        </div>
-        <div class="other">
-          <div class="reaction">
-            <ion-icon name="thumbs-up-outline"></ion-icon>
-            <ion-icon name="thumbs-down-outline"></ion-icon>
-          </div>
-          <button>Other Lyrics</button>
-        </div>
-      </div>
-
-      <!-- ================= New Customers ================ -->
-      <div class="recentCustomers">
-        <h2>Playing now</h2>
-        <div class="song">
-          <img src="./public/image/album1.png" alt="">
-          <div class="songinfo">
-            <div class="txt">
-              <h5>God On The Weekend</h5>
-              <p>Ian Asher</p>
-            </div>
-            <div class="icon">
-              <ion-icon name="pencil-sharp"></ion-icon>
-            </div>
-          </div>
-          <div class="play">
-            <div class="line"></div>
-            <div class="icons">
-              <ion-icon name="caret-back-sharp"></ion-icon>
-              <ion-icon name="pause-circle" class="pause"></ion-icon>
-              <ion-icon name="caret-forward-sharp"></ion-icon>
-            </div>
-          </div>
-        </div>
->>>>>>> bb0f2fe8bf492357b4c517ddddec65695fcde4a8
 
             <!-- ================= New Customers ================ -->
             <div class="recentCustomers">
                 <h2>Playing now</h2>
                 <div class="song">
-                    <img src="<?php echo URLROOT ?>/image/album1.png" alt="">
+                    <img src="./public/image/album1.png" alt="">
                     <div class="songinfo">
                         <div class="txt">
                             <h5>God On The Weekend</h5>
@@ -157,9 +122,33 @@
                     </div>
                 </div>
 
+                <!-- ================= New Customers ================ -->
+                <div class="recentCustomers">
+                    <h2>Playing now</h2>
+                    <div class="song">
+                        <img src="<?php echo URLROOT ?>/image/album1.png" alt="">
+                        <div class="songinfo">
+                            <div class="txt">
+                                <h5>God On The Weekend</h5>
+                                <p>Ian Asher</p>
+                            </div>
+                            <div class="icon">
+                                <ion-icon name="pencil-sharp"></ion-icon>
+                            </div>
+                        </div>
+                        <div class="play">
+                            <div class="line"></div>
+                            <div class="icons">
+                                <ion-icon name="caret-back-sharp"></ion-icon>
+                                <ion-icon name="pause-circle" class="pause"></ion-icon>
+                                <ion-icon name="caret-forward-sharp"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>

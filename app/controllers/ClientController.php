@@ -1,16 +1,34 @@
 <?php
-  class ClientController extends Controller {
-    public function __construct(){
-     
-    }
-    public function index(){
-      $data = [
-        'title' => 'client',
-      ];
-     
-      $this->view('pages/client/clienthome', $data);
-    }
-    
+class ClientController extends Controller
+{
 
-  
+  private $reclamationDao;
+
+  public function __construct()
+  {
+    $this->reclamationDao = $this->model("ReclamationDao");
   }
+
+  public function index()
+  {
+    $data = [
+      'title' => 'client',
+    ];
+
+    $this->view('pages/client/clienthome', $data);
+  }
+
+  public function AddReclamation()
+  {
+    if (isset($_POST['submit'])) {
+      $lyrics_id = 1; // change to  $_POST["lyrics_id"] (douaa zidi hadi mli t9adi la tache dyalk)
+      $typeReclamation = $_POST['typeReclamation'];
+      $user_id = $_SESSION['id'];
+      $this->reclamationDao->InsertReclamation($lyrics_id, $typeReclamation, $user_id);
+      header('Location: ' . URLROOT . '/ClientController/index');
+    } else {
+      header('Location: ' . URLROOT . '/ClientController/index');
+    }
+  }
+
+}
