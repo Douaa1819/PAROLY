@@ -6,7 +6,7 @@ class LyricsController {
     private $model;
 
     public function __construct() {
-        $this->model = new LyricsModel();
+        $this->model = new LyricsDao();
     }
 
     public function addLyrics() {

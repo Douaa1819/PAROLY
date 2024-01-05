@@ -1,4 +1,4 @@
-<<<<<<< HEAD <?php 
+<?php 
 if($data['title']==''){
     $data['title']= SITENAME;
 }

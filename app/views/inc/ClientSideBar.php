@@ -10,13 +10,13 @@
     				</a>
     			</li>
     			<li>
-    				<a href="<?php echo URLROOT; ?>/ClientControllers">
+    				<a href="<?php echo URLROOT; ?>/ClientController">
     					<span class="icon"> <ion-icon name="home-outline"></ion-icon> </span>
     					<span class="title">Home</span>
     				</a>
     			</li>
     			<li>
-    				<a href="../pages/clientdashboard.php/account">
+    				<a href="#">
     					<span class="icon">
     						<ion-icon name="person-outline"></ion-icon>
     					</span>
@@ -24,7 +24,7 @@
     				</a>
     			</li>
     			<li>
-    				<a href="../pages/clientdashboard.php/playlist">
+    				<a href="#">
     					<span class="icon">
     						<ion-icon name="invert-mode-outline"></ion-icon>
     					</span>
