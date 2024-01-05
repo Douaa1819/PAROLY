@@ -7,6 +7,7 @@ unset($_SESSION['role']);
 class UserController extends Controller
 {
     private $UserModel;
+    private $PHPMailer;
     public function __construct(){
         $this->UserModel = $this->model('UserDao');
         $this->PHPMailer=$this->model('PHPMailerDao');
@@ -133,14 +134,14 @@ class UserController extends Controller
 private function redirectBasedOnRole($role) {
     switch ($role) {
         case 'admin':
-            //  header('Location: ' . URLROOT.'/DashbordControler');
+            
             echo '<script>window.location.replace(" '.URLROOT.'/DashbordControler");</script>';
             break;
         case 'client':
-          //  echo '<script>window.location.replace("/DashbordControler.php");</script>';
+           echo '<script>window.location.replace("'.URLROOT.'/ClientController");</script>';
             break;
         case 'artist':
-          //  echo '<script>window.location.replace("/DashbordControler.php");</script>';
+           echo '<script>window.location.replace("'.URLROOT.'/Artist");</script>';
             break;
         default:
            
