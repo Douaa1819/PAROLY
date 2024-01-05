@@ -15,6 +15,8 @@ class AlbumDao{
         JOIN genre g ON a.genre_id = g.id
         WHERE a.user_id = :id;";
         $this->db->query($req);
+        $id = $_SESSION['id'];
+        $this->db->bind(':id',$id);
         $res = $this->db->fetchAll();  
         $array = array();
         foreach ($res as $row) {

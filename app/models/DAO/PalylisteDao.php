@@ -14,7 +14,7 @@ class PalylisteDao{
         $this->db->query($req);
         $id = $_SESSION['id'];
         $this->db->bind(":id", $id);
-        $res = $this->db->fetchAll();
+        $res = $this->db->fetchAll();  
         $array = array();
         foreach ($res as $row) {
             $playliste = new Palyliste();

@@ -1,10 +1,10 @@
 <?php
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\Exception;
-    require APPROOT.'./PHPMailer-master/src/Exception.php';
+    require APPROOT.'/PHPMailer-master/src/Exception.php';
         
-    require APPROOT.'./PHPMailer-master/src/PHPMailer.php';
-    require APPROOT.'./PHPMailer-master/src/SMTP.php';
+    require APPROOT.'/PHPMailer-master/src/PHPMailer.php';
+    require APPROOT.'/PHPMailer-master/src/SMTP.php';
      
   
 class PHPMailerDao {
