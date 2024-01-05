@@ -6,7 +6,8 @@ $user_id=1;
 $id_Song=2;
 
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -63,7 +64,7 @@ $id_Song=2;
     <div class="details">
       <div class="recentOrders">
         <h2>Lyrics</h2>
-        <div class="lyrics">
+        <div class="lyrics" >
           <pre>
       When was the last time, did somethin' for the first time?
       Cause I need a good night to last for a lifetime
@@ -81,38 +82,7 @@ $id_Song=2;
       Feelin' like I've seen these signs
       Like somewhere in a past life
           </pre>
-              <!--=========================Modal====================-->
-
-    <div class="button-add-student float-end me-4">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-            data-bs-whatever="@mdo">Report</button>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Report</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="POST" action="<?= URLROOT ?>/ClientController/AddReclamation"
-                            enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label for="typeReclamation" class="col-form-label">Why are you reporting those Lyrics?</label>
-                                <input type="text" class="form-control" name="typeReclamation" required>
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="submit" name="submit" class="btn btn-primary">Submit Your Report</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
-        </div>
-        
         <div class="other">
           <div class="reaction">
             <ion-icon name="thumbs-up-outline"></ion-icon>
@@ -132,13 +102,57 @@ $id_Song=2;
               <h5>God On The Weekend</h5>
               <p>Ian Asher</p>
             </div>
-            <div class="icon">
-              <ion-icon name="pencil-sharp"></ion-icon>
+
+            <!-- iciiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii -->
+   
+    
+
+<button id="modal-toggle" data-modal-toggle="authentication-modal" type="button" class="icon cursor-pointer mt-4 ml-4 p-2 bg-red-600 text-white rounded-full">
+    <ion-icon name="pencil-sharp"></ion-icon>
+</button>
+
+
+<div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto flex overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+       
+        <div class="relative bg-slate-800 rounded-lg shadow dark:bg-gray-700">
+    
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 bg-neutral-700 text-white">
+                <h3 class="text-xl font-semibold">
+                    Enter your Lyrics
+                </h3>
+                <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
             </div>
-          </div>
+            <!-- Modal body -->
+            <div class="p-4 md:p-5">
+          <form id="lyrics-form" action="<?php echo URLROOT . '/LyricsController/addLyrics'; ?>" method="post">
+        <textarea name="name_lyrics" placeholder="Ajouter parol..." class=" text-black"></textarea>
+        <input type="hidden" name="id_song" value="<?php echo $id_Song; ?>">
+        <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+        <button type="submit" name="addParol">Enter</button>
+    </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
 
 
-          
+
+
+
+
+
+
+
+
+
+
           <div class="play">
             <div class="line"></div>
             <div class="icons">
@@ -152,6 +166,42 @@ $id_Song=2;
       </div>
     </div>
   </div>
-</body>
+  <script>
+ document.addEventListener('DOMContentLoaded', function() {
 
+    var modalButton = document.querySelector('[data-modal-toggle="authentication-modal"]');
+    var modal = document.getElementById('authentication-modal');
+    var form = document.getElementById('lyrics-form');
+
+    modalButton.addEventListener('click', function() {
+        toggleModal();
+    });
+
+
+    // fonction pour gérer l'ouverture/fermeture du modal
+    function toggleModal() {
+        modal.classList.toggle('hidden');
+    }
+
+    var closeButtons = document.querySelectorAll('[data-modal-hide="authentication-modal"]');
+
+    closeButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            toggleModal();
+        });
+    });
+
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    });
+
+    modal.querySelector('.relative').addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+});
+
+</script>
+</body>
 </html>

@@ -7,6 +7,7 @@ unset($_SESSION['role']);
 class UserController extends Controller
 {
     private $UserModel;
+    private $PHPMailer;
     public function __construct(){
         $this->UserModel = $this->model('UserDao');
         $this->PHPMailer=$this->model('PHPMailerDao');
