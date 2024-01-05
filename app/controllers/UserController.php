@@ -29,6 +29,12 @@ class UserController extends Controller {
         
         
     }
+    public function verify(){
+        $data = [
+            'title' => 'verify',
+        ];
+        $this->view('pages/Registration/verify',$data);
+    }
     public function verifyUser(){
         if(isset($_POST['verif'])){
             $email = $_POST['email']; 
@@ -47,7 +53,8 @@ class UserController extends Controller {
             $result = $this->UserModel->findUserByEmail1($email);
             if($result && $result[0]->role !== 'admin'){
                 $this->UserModel->ResetPwd($email);
-                $this->view('pages/Registration/verify');    
+                header('Location: '.URLROOT.'/UserController/verify');
+                exit();  
 
             }elseif($result && $result[0]->role == 'admin'){
                 ?>

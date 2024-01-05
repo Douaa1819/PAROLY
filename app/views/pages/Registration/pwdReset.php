@@ -14,7 +14,7 @@
             <h1 class="text-3xl font-bold text-gray-800">Reset your password</h1>
             
         </div>
-        <form action=" " method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-4">
                 <input class="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-600" type="email" name="email" placeholder="Email" >
             </div>
