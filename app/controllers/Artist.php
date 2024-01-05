@@ -67,13 +67,13 @@ class Artist extends Controller {
           $tmp_name = $_FILES['img']['tmp_name'];
           $image = file_get_contents($tmp_name);
           $genre = $_POST['Genre_name'];
-          
-       $this->AlbumModel->InsertAlbum($album, $image, $genre);
+          $id = $_SESSION['id'];
+       $this->AlbumModel->InsertAlbum($album, $image, $genre, $id);
        
-         header('Location: '.URLROOT.'/Artist/Album');
+         header('Location: '.URLROOT.'/Artist/Albume');
       }
       else{
-        header('Location: '.URLROOT.'/Artist/Album');
+        header('Location: '.URLROOT.'/Artist/Albume');
       }
         
         }

@@ -137,7 +137,7 @@ if(!isset($_SESSION['id'])){
                        $namePlayliste=$_POST['Playliste'];
                        $tmp_name= $_FILES['image']['tmp_name'];
                        $image = file_get_contents($tmp_name);
-                        $user=$_POST['user'] ;
+                        $user=$_SESSION['id'] ;
                         
                         $this->PlayListeModel->InsertPlayliste($namePlayliste,$image,$user);
                         header('Location: '.URLROOT.'/DashbordControler/Playlist');
