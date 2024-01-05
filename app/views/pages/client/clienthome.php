@@ -69,18 +69,25 @@
       </div>
     </div>
     <div class="musicBox">
+      <?php foreach($data['song'] as $song)
+      {
+        ?>
       <div class="card">
-        <div class="img"><img src="<?php echo URLROOT ?>/image/album1.png" alt=""></div>
+        <div class="img"><img  src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($song->getAlbum_imageC() ); ?>" />   </div>
         <div class="songinfo">
             <div class="txt">
-              <h5>God On The Weekend</h5>
-              <p>Ian Asher</p>
+              <h5><?php echo $song->getNameSongC();?></h5>
+             
             </div>
             <div class="icon">
               <ion-icon name="pencil-sharp"></ion-icon>
             </div>
           </div>
       </div>
+      <?php
+      }
+      ?>
+      
     </div>
     <!-- ================ Order Details List ================= -->
     <div class="details">

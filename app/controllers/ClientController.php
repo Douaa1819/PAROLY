@@ -3,16 +3,18 @@ class ClientController extends Controller
 {
 
   private $reclamationDao;
-
+private $songModel;
   public function __construct()
   {
     $this->reclamationDao = $this->model("ReclamationDao");
+    $this->songModel = $this->model("SongDao");
   }
 
   public function index()
   {
     $data = [
       'title' => 'client',
+      'song'=> $this->songModel->getAllForClient(),
     ];
 
     $this->view('pages/client/clienthome', $data);

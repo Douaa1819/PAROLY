@@ -29,9 +29,33 @@ class SongDao{
             array_push($array,$Song);
            
         }
+
     
         return $array;
     }
+    public function getAllForClient() {
+        $req = "SELECT song.id AS ids, song.name AS nom, song.created_at AS date, album.image AS image
+                FROM song
+                JOIN album ON song.album_id = album.id";
+        $this->db->query($req);
+          
+        $res = $this->db->fetchAll();
+        $array = array();
+        foreach ($res as $row) {
+            $Song = new Song();
+            $Song->setIdSongC($row->ids);
+            $Song->setDateC($row->date);
+            $Song->setNameSongC($row->nom);
+            $Song->setAlbum_imageC($row->image);  
+            array_push($array, $Song);
+        }
+    
+        return $array;
+    }
+    
+
+
+
     public function InsertSong($nameSong,$idAlbum){
         
         $req="INSERT INTO song(name,album_id) VALUES (:nameSong,:idAlbum) ";
@@ -49,6 +73,9 @@ class SongDao{
         $this->db->bind(':id',$idSong);
         $this->db->execute();
     }
+
+
+    
 }
 
 ?>
