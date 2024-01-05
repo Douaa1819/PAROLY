@@ -20,10 +20,13 @@ class UserController extends Controller {
     public function pwdReset(){
         $data = [
             'title' => 'pwdReset',
+            
+            
         ];
 
         $this->view('pages/Registration/pwdReset', $data);
         $this->verifyUser();
+        
         
     }
     public function verifyUser(){
@@ -44,8 +47,7 @@ class UserController extends Controller {
             $result = $this->UserModel->findUserByEmail1($email);
             if($result && $result[0]->role !== 'admin'){
                 $this->UserModel->ResetPwd($email);
-                
-                
+                $this->view('pages/Registration/verify');    
 
             }elseif($result && $result[0]->role == 'admin'){
                 ?>
