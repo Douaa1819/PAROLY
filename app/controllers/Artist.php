@@ -3,12 +3,7 @@ session_start();
 if(!isset($_SESSION['id'])){
   header('Location: '.URLROOT.'/UserController');
 }
-if($_SESSION['role'] != 'artist' && $_SESSION['role'] = 'client' ){
-  header('Location: '.URLROOT.'/ClientController');
-}
-if($_SESSION['role'] != 'artist' && $_SESSION['role'] = 'admin' ){
-  header('Location: '.URLROOT.'/DashbordControler');
-}
+
 class Artist extends Controller {
   
     private $AlbumModel;

@@ -3,12 +3,7 @@ session_start();
 if(!isset($_SESSION['id'])){
   header('Location: '.URLROOT.'/UserController');
 }
-if($_SESSION['role'] != 'client' && $_SESSION['role'] = 'artist' ){
-  header('Location: '.URLROOT.'/artist');
-}
-if($_SESSION['role'] != 'client' && $_SESSION['role'] = 'admin' ){
-  header('Location: '.URLROOT.'/DashbordControler');
-}
+
   class ClientController extends Controller {
     public function __construct(){
      
