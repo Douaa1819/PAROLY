@@ -19,11 +19,11 @@ toggle.onclick = function () {
   navigation.classList.toggle("active");
   main.classList.toggle("active");
 };
-// 
+//
 function update() {
-console.log("aaa");
+  console.log("aaa");
 }
-// update Genere 
+// update Genere
 const updateBtns = document.querySelectorAll(".update-btn");
 const genreid = document.querySelector("#id");
 const genreInput = document.querySelector("#genre");
@@ -33,7 +33,20 @@ for (let i = 0; i < updateBtns.length; i++) {
     console.log(updateBtns[i].attributes.value.value);
     console.log(updateBtns[i].dataset.key);
     genreid.setAttribute("value", updateBtns[i].dataset.key);
-    genreInput.value=updateBtns[i].attributes.value.value
-  })
+    genreInput.value = updateBtns[i].attributes.value.value;
+  });
 }
-//update Playliste
+//Approve Parol
+const approve_btn = document.querySelectorAll(".approve_btn");
+const lyrics_id = document.querySelector("#idlyrics");
+const email_input = document.querySelector("#email");
+
+for (let i = 0; i < approve_btn.length; i++) {
+  approve_btn[i].addEventListener("click", () => {
+    // console.log("test");
+    console.log(approve_btn[i].dataset.key);
+    console.log(approve_btn[i].attributes.value.value);
+    lyrics_id.setAttribute("value", approve_btn[i].dataset.key);
+    email_input.value = approve_btn[i].attributes.value.value;
+  });
+}
