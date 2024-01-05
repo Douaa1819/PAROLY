@@ -5,6 +5,7 @@ class Song{
     private $nameSong;
     private $album_id;
     private $album_image;
+    private $date;
    
     public function __construct(){
         
@@ -82,6 +83,21 @@ class Song{
     public function getAlbum_image()
     {
         return $this->album_image;
+    }
+     public function getDate(){
+        return $this->date;
+     }
+
+/**
+     * Set the value of album_name
+     *
+     * @return  self
+     */ 
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
     }
 
     /**

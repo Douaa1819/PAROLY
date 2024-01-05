@@ -127,7 +127,7 @@
                         <td><p><?php echo $song->getNameSong(); ?></p></td>                       
                     <td><img  src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($song->getAlbum_image() ); ?>"
                                 style=" width: 120px; border-radius: 10px;" /></td>                      
-                      <td>dd</td>
+                      <td><p><?php echo $song->getdate(); ?></p></td>
                     </tr>
                         <?php
                         }
