@@ -139,9 +139,9 @@
                     <form method="POST" action="<?php echo URLROOT ?>/DashbordControler/sendEmail"
                         enctype="multipart/form-data">
                         <div class="mb-3">
-                            <label for="lyrics" class="col-form-label">Email:</label>
+                            <!-- <label for="lyrics" class="col-form-label">Email:</label> -->
                             <input id="idlyrics" type="hidden" class="form-control" name="id">
-                            <input id="email" type="text" class="form-control" name="Email">
+                            <input id="email" type="hidden" class="form-control" name="Email">
                         </div>
                         <div class="mb-3">
                             <label for="genre" class="col-form-label">Parol:</label>

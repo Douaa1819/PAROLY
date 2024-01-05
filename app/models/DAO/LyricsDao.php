@@ -9,7 +9,7 @@ class LyricsDao{
   }
   public function getAll(){
     $req="SELECT lyrics.id id,lyrics.name_lyrics nom,lyrics.date date,lyrics.status statu,users.user_id clientid,users.username nom_client,users.email email,song.name Music
-    FROM lyrics,users,song where lyrics.user_id=users.user_id and lyrics.id_Song=song.id and users.role='client'";
+    FROM lyrics,users,song where lyrics.user_id=users.user_id and lyrics.id_Song=song.id and users.role='client' and lyrics.status=0";
     $this->db->query($req);
    $res= $this->db->fetchALL();
     $Lyrics=array();
@@ -33,6 +33,22 @@ class LyricsDao{
             $this->db->bind(":id",$id);
             $this->db->execute();
         }
+        public function UpdateStatus($id) {
+          $req = "UPDATE lyrics SET status = 1 WHERE id = :id";
+          $this->db->query($req);
+          $this->db->bind(':id', $id);
+      
+          try {
+              $res = $this->db->execute();
+              return $res;
+          } catch (\PDOException $e) {
+              // Log or handle the exception
+              error_log('UpdateStatus Error: ' . $e->getMessage());
+              return false;
+          }
+      }
+      
+      
 }
 
 

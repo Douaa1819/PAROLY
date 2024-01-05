@@ -203,13 +203,16 @@ class DashbordControler extends Controller
   // -------------------------------------PHPMAILER-----------------
   public function sendEmail() {
     $to=$_POST['Email'];
+    $id=$_POST['id'];
     $subject=" Accepte  ";
     $body="félicitation on a  affiche  les  paroles pour music";
    
     $result = $this->PHPMailer->sendEmail($to, $subject,$body);
 
     if ($result) {
-        echo 'Email sent successfully!';
+      $this->LyricsModel->UpdateStatus($id);
+      header('Location: ' . URLROOT . '/DashbordControler/Lyrics');
+      
     } else {
         echo 'Error sending email.';
     }
