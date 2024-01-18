@@ -62,7 +62,7 @@
     <!-- ------------------------Modal lyrics---------------------------------------- -->
 
     <!-- ================ Order Details List ================= -->
-    <div class="details">
+    <div class="lyrics">
         <div class="recentOrders">
             <div class="cardHeader">
                 <h2>Song</h2>
@@ -107,98 +107,7 @@
         </div>
 
         <!-- ================= New Customers ================ -->
-        <div class=" recentCustomers">
-            <div class="cardHeader">
-                <h2>Song </h2>
-            </div>
 
-            <!-- <table>
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer02.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album<br />
-                            <span>Italy</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer01.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>India</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer02.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>Italy</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer01.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>India</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer02.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>Italy</span>
-                        </h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="60px">
-                        <div class="imgBx">
-                            <img src="assets/imgs/customer01.jpg" alt="" />
-                        </div>
-                    </td>
-                    <td>
-                        <h4>
-                            Album <br />
-                            <span>India</span>
-                        </h4>
-                    </td>
-                </tr>
-
-            </table> -->
-        </div>
     </div>
 </div>
 </div>

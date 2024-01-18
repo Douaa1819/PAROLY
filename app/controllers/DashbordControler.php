@@ -8,6 +8,7 @@ class DashbordControler extends Controller
   private $SongModel;
   private $PHPMailer;
   private $reclamationDao;
+  private $user;
   public function __construct()
   {
     $this->GenreModel = $this->model('GenreDao');
@@ -17,6 +18,8 @@ class DashbordControler extends Controller
     $this->SongModel = $this->model('SongDao');
     $this->PHPMailer=$this->model('PHPMailerDao');
     $this->reclamationDao = $this->model("ReclamationDao");
+    $this->user = $this->model("UserDao");
+    
 
   }
 
@@ -24,9 +27,16 @@ class DashbordControler extends Controller
   {
     $data = [
       'title' => 'Dashbord',
+       'client'=>$this->user->getClient(),
+       'playliste'=>$this->user->affiche_Statistiques('playliste'),
+       'Song'=>$this->user->affiche_Statistiques('song'),
+       'genre'=>$this->user->affiche_Statistiques('genre'),
+       'lyrics'=>$this->user->affiche_Statistiques('lyrics')
+       
     ];
-
-    $this->view('pages/Dashbord/Dashboord', $data);
+// var_dump($data['client']);
+// die();
+      $this->view('pages/Dashbord/Dashboord', $data);
   }
   public function Genre()
   {
@@ -46,7 +56,7 @@ class DashbordControler extends Controller
       'title' => 'Album',
       'Album' => $this->AlbumModel->getAll(),
       'Genre' => $this->GenreModel->getAll(),
-      'reclame'=>$this->reclamationDao->getAllreclam()
+      // 'reclame'=>$this->reclamationDao->getAllreclam()
     ];
  
     $this->view('pages/Dashbord/Album', $data);
@@ -108,6 +118,7 @@ class DashbordControler extends Controller
   {
     if (isset($_GET['id'])) {
       $id = $_GET['id'];
+   
       $this->GenreModel->DelletGenre($id);
 
       header('Location: ' . URLROOT . '/DashbordControler/Genre');

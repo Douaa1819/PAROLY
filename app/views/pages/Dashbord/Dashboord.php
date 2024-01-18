@@ -39,8 +39,11 @@
     <div class="cardBox">
         <div class="card">
             <div>
-                <div class="numbers">1,504</div>
-                <div class="cardName">Parol</div>
+                <div class="numbers">
+                    <?=   $data['playliste'] ?>
+
+                </div>
+                <div class="cardName">playliste</div>
             </div>
 
             <div class="iconBx">
@@ -52,8 +55,8 @@
 
         <div class="card">
             <div>
-                <div class="numbers">80</div>
-                <div class="cardName">like</div>
+                <div class="numbers"><?= $data['Song'] ?></div>
+                <div class="cardName">Song</div>
             </div>
 
             <div class="iconBx">
@@ -63,19 +66,20 @@
 
         <div class="card">
             <div>
-                <div class="numbers">284</div>
-                <div class="cardName">Dislike</div>
+                <div class="numbers">
+                    <?= $data['genre']; ?></div>
+                <div class="cardName">genre</div>
             </div>
 
             <div class="iconBx">
-                <ion-icon name="heart-dislike-outline"></ion-icon>
+                <ion-icon name="logo-ionic"></ion-icon>
             </div>
         </div>
 
         <div class="card">
             <div>
-                <div class="numbers">$7,842</div>
-                <div class="cardName">Artiste</div>
+                <div class="numbers"><?= $data['lyrics']; ?></div>
+                <div class="cardName">Lyrics</div>
             </div>
 
             <div class="iconBx">
@@ -95,22 +99,30 @@
             <table>
                 <thead>
                     <tr>
+                        <td>#</td>
                         <td>Name</td>
-                        <td>Price</td>
-                        <td>Payment</td>
-                        <td>Status</td>
+                        <td>Email</td>
+
                     </tr>
                 </thead>
 
                 <tbody>
+                    <?php foreach ($data['client'] as  $value) {
+                     
+                ?>
                     <tr>
-                        <td>Star Refrigerator</td>
-                        <td>$1200</td>
-                        <td>Paid</td>
-                        <td><span class="status delivered">Delivered</span></td>
+                        <td>
+                            <!-- $user->setUser_id($row->user_id);
+                            $user->setUsername($row->username);
+                            $user->setEmail($row->email); -->
+                            <?= $value->getUser_id()  ?>
+                        </td>
+                        <td> <?= $value->getUsername()   ?></td>
+                        <td> <?=  $value->getEmail()  ?></td>
+
                     </tr>
 
-
+                    <?php } ?>
                 </tbody>
             </table>
         </div>

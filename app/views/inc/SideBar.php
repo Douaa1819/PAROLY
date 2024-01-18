@@ -28,7 +28,7 @@
                         <span class="title">Genre</span>
                     </a>
                 </li>
-
+                <!-- 
                 <li>
                     <a href="<?php echo URLROOT; ?>/DashbordControler/Artiste">
                         <span class="icon">
@@ -36,7 +36,7 @@
                         </span>
                         <span class="title">Artiste</span>
                     </a>
-                </li>
+                </li> -->
 
                 <li>
                     <a href="<?php echo URLROOT; ?>/DashbordControler/Playlist">

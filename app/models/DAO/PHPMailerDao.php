@@ -18,13 +18,14 @@ class PHPMailerDao {
 
         // SMTP Configuration (Update with your SMTP settings)
          //Server settings
+        //  protocole
     $mail->isSMTP();                              //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';       //Set the SMTP server to send through 
     $mail->SMTPAuth   = true;             //Enable SMTP authentication (active)
     $mail->Username   = 'misstreanouar@gmail.com';   //SMTP write your email
     $mail->Password   = 'bbnqfpkmbmcumsso';      //SMTP password
-    $mail->SMTPSecure = 'ssl';            //Enable implicit SSL encryption securite
-    $mail->Port       = 465;  
+    $mail->SMTPSecure = 'ssl';           //Enable implicit SSL encryption securite
+    $mail->Port       = 465;   //port communcication
     // $mail->setFrom( $_POST["email"], $_POST["name"]); // Sender Email and name
     // $mail->addAddress('hagiro2883@visignal.com');     //Add a recipient email  
     // $mail->addReplyTo($_POST["email"], $_POST["name"]); // reply to sender email

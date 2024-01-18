@@ -44,7 +44,7 @@ class GenreDao{
         $req = "UPDATE genre SET nom = :name WHERE id = :id";
         $this->db->query($req);
         $this->db->bind(":id", $id);
-        $this->db->bind(":name", $name); // Use $name instead of $id
+        $this->db->bind(":name", $name); 
         $this->db->execute();
     }
     
