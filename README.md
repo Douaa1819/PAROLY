@@ -13,9 +13,10 @@
 -[Amine Chaguer](https://github.com/chaguer12)
 -[Anouar Bouchahboune](https://github.com/anouar-devlopeur)
 <img width="656" alt="image" src="https://github.com/Douaa1819/PAROLY/assets/76851076/70c6f262-3a55-4f0c-9743-244e60293d76">
+## Capture d'écran de site
 
+![Screenshot 2024-01-18 185746](https://github.com/Douaa1819/PAROLY/assets/125483549/37f7baa2-1a00-4822-ac46-77b8586fadab)
 
+![Screenshot 2024-01-18 185830](https://github.com/Douaa1819/PAROLY/assets/125483549/0bbcb9bd-4152-4fd0-a286-d317a5e1d69f)
 
-
-
-
+![Screenshot 2024-01-18 194116](https://github.com/Douaa1819/PAROLY/assets/125483549/0ff38ba4-282b-4fe9-885d-0fe086da6e12)
