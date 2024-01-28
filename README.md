@@ -20,3 +20,4 @@
 ![Screenshot 2024-01-18 185830](https://github.com/Douaa1819/PAROLY/assets/125483549/0bbcb9bd-4152-4fd0-a286-d317a5e1d69f)
 
 ![Screenshot 2024-01-18 194116](https://github.com/Douaa1819/PAROLY/assets/125483549/0ff38ba4-282b-4fe9-885d-0fe086da6e12)
+![Screenshot 2024-01-28 102031](https://github.com/Douaa1819/PAROLY/assets/125483549/e2b8672a-6c3f-4c8b-acf8-dc5be4ac0cd7)
